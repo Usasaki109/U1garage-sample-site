@@ -256,7 +256,6 @@
   </footer>
 
   <script>
-    // モバイルナビ開閉
     const btn = document.querySelector('.nav-toggle');
     const nav = document.getElementById('globalnav');
     if (btn && nav) {
@@ -266,7 +265,15 @@
       });
     }
 
-    // スクロール時のヘッダー影
+    // クリック時：モバイルメニューを閉じる。遷移は邪魔しない。
+    document.querySelectorAll('.nav__list a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav?.classList.remove('is-open');
+        btn?.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // スクロール時のヘッダー影（既存のままでOK）
     const header = document.querySelector('.header');
     const onScroll = () => {
       if (window.scrollY > 8) header.classList.add('is-scrolled');
@@ -274,33 +281,7 @@
     };
     window.addEventListener('scroll', onScroll);
     onScroll();
-
-    // 現在位置ハイライト
-    const sections = document.querySelectorAll('main section[id]');
-    const navMap = new Map(
-      [...document.querySelectorAll('.nav__list a')]
-        .map(a => [a.getAttribute('href').replace('#',''), a])
-    );
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const id = e.target.id;
-        navMap.forEach(a => a.removeAttribute('aria-current'));
-        if (navMap.get(id)) navMap.get(id).setAttribute('aria-current','page');
-      });
-    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
-    sections.forEach(s => io.observe(s));
-
-    // モバイル時：リンク押下でメニューを閉じる＆ハイライト即時反映
-    document.querySelectorAll('.nav__list a').forEach(a=>{
-      a.addEventListener('click', () => {
-        nav?.classList.remove('is-open');
-        btn?.setAttribute('aria-expanded','false');
-        // クリック時に一旦ハイライト
-        navMap.forEach(el => el.removeAttribute('aria-current'));
-        a.setAttribute('aria-current','page');
-      });
-    });
   </script>
+
 </body>
 </html>

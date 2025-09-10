@@ -156,7 +156,6 @@
   </footer>
 
   <script>
-    // モバイルナビ開閉
     const btn = document.querySelector('.nav-toggle');
     const nav = document.getElementById('globalnav');
     if (btn && nav) {
@@ -165,7 +164,16 @@
         btn.setAttribute('aria-expanded', String(open));
       });
     }
-    // スクロール時のヘッダー影
+
+    // クリック時：モバイルメニューを閉じる。遷移は邪魔しない。
+    document.querySelectorAll('.nav__list a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav?.classList.remove('is-open');
+        btn?.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // スクロール時のヘッダー影（既存のままでOK）
     const header = document.querySelector('.header');
     const onScroll = () => {
       if (window.scrollY > 8) header.classList.add('is-scrolled');
@@ -174,5 +182,6 @@
     window.addEventListener('scroll', onScroll);
     onScroll();
   </script>
+
 </body>
 </html>
