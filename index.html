@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- 上部の細帯（濃紺・TEL） -->
+  <!-- 上部の細帯 -->
   <div class="topbar">
     <div class="container">
       <small>中古車・整備のことなら U1-GARAGE へ</small>
@@ -16,10 +16,13 @@
     </div>
   </div>
 
-  <!-- ヘッダー（ロゴ＋ナビ1段目） -->
+  <!-- ヘッダー（ロゴ左 / メニュー右） -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/"><img src="img/hd-logo.png" alt="U1-GARAGE" height="56"></a>
+      <a class="brand" href="/">
+        <img src="img/hd-logo.png" alt="U1-GARAGE" height="56">
+      </a>
+
       <nav class="nav">
         <a href="#about">会社概要</a>
         <a href="#autoshow">オートショー活動</a>
@@ -31,17 +34,20 @@
     </div>
   </header>
 
-  <!-- ヒーロー帯（横長背景） -->
+  <!-- ヒーロー（左ロゴ/右イメージの2カラム重ね） -->
   <section class="hero">
     <div class="hero-bg" role="img" aria-label="ヒーロー背景"></div>
     <div class="container hero-inner">
-      <h1>U1-GARAGE</h1>
-      <p>整備・メンテナンス／車検／各種修理はお気軽にご相談ください。</p>
-      <!-- ※ 要望により “自社ローン・在庫” 系のボタンは置かない -->
+      <div class="hero-left">
+        <img class="hero-logo" src="img/hd-logo.png" alt="U1-GARAGE ロゴ">
+      </div>
+      <div class="hero-right">
+        <!-- 車写真などを置く場合：img/hero_car.png を入れて <img src="img/hero_car.png" alt=""> -->
+      </div>
     </div>
   </section>
 
-  <!-- 2段目のタブ型ナビ（R9AUTO風） -->
+  <!-- 濃紺のタブ型ナビ（R9の2段目相当） -->
   <nav class="tabnav">
     <div class="container">
       <a href="#about">会社概要</a>
@@ -53,17 +59,38 @@
     </div>
   </nav>
 
-  <!-- メイン 2カラム（左：3ブロック／右：サイドバー） -->
+  <!-- タイルナビ（画像ボタン） -->
+  <section class="tiles">
+    <div class="container tiles-grid">
+      <a class="tile" href="#about">
+        <img src="img/nav_about.png" alt=""><span>会社概要</span>
+      </a>
+      <a class="tile" href="#autoshow">
+        <img src="img/nav_autoshow.png" alt=""><span>オートショー活動</span>
+      </a>
+      <a class="tile" href="#feature">
+        <img src="img/nav_feature.png" alt=""><span>U1の特徴</span>
+      </a>
+      <a class="tile" href="#maintenance">
+        <img src="img/nav_maintenance.png" alt=""><span>修理・メンテナンス</span>
+      </a>
+      <a class="tile" href="#contact">
+        <img src="img/nav_contact.png" alt=""><span>お問合せ</span>
+      </a>
+      <a class="tile" href="#line">
+        <img src="img/nav_line.png" alt=""><span>LINE</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- メイン 2カラム：左=3ブロック / 右=サイド -->
   <main class="container main">
     <section class="content">
-      <!-- ① 会社概要（左） -->
       <article id="about" class="promo">
-        <div class="promo-head">
-          <h2>会社概要</h2>
-        </div>
+        <div class="promo-head red"><h2>会社概要</h2></div>
         <div class="promo-body">
           <div class="promo-text">
-            <p>U1-GARAGEの基本情報・理念・所在地・営業時間をご案内します。</p>
+            <p>U1-GARAGE の基本情報・理念・所在地・営業時間をご案内します。</p>
           </div>
           <div class="promo-thumb">
             <img src="img/promo_about.jpg" alt="会社概要">
@@ -71,14 +98,11 @@
         </div>
       </article>
 
-      <!-- ② U1の特徴（左） -->
       <article id="feature" class="promo">
-        <div class="promo-head blue">
-          <h2>U1の特徴</h2>
-        </div>
+        <div class="promo-head blue"><h2>U1の特徴</h2></div>
         <div class="promo-body">
           <div class="promo-text">
-            <p>経験豊富なメカニックと整備設備で、日常メンテから各種修理・カスタムまで対応します。</p>
+            <p>経験豊富なメカニックと設備で、日常メンテから各種修理・カスタムまで幅広く対応します。</p>
           </div>
           <div class="promo-thumb">
             <img src="img/promo_feature.jpg" alt="U1の特徴">
@@ -86,14 +110,11 @@
         </div>
       </article>
 
-      <!-- ③ 修理・メンテナンス（左） -->
       <article id="maintenance" class="promo">
-        <div class="promo-head green">
-          <h2>修理・メンテナンス</h2>
-        </div>
+        <div class="promo-head green"><h2>修理・メンテナンス</h2></div>
         <div class="promo-body">
           <div class="promo-text">
-            <p>法定点検・車検・電装系・ブレーキ・足回り・診断機対応など、幅広く承ります。</p>
+            <p>法定点検・車検・電装系・ブレーキ・足回り・診断機対応ほか、各種メンテナンスを承ります。</p>
           </div>
           <div class="promo-thumb">
             <img src="img/promo_maintenance.jpg" alt="修理・メンテナンス">
@@ -101,7 +122,6 @@
         </div>
       </article>
 
-      <!-- トピックス（下段リスト） -->
       <section class="topics">
         <h2>TOPICS</h2>
         <ul class="topics-list">
@@ -112,7 +132,6 @@
       </section>
     </section>
 
-    <!-- サイドバー（右） -->
     <aside class="sidebar">
       <section class="sb-box">
         <h3>ACCESS MAP</h3>
@@ -136,7 +155,7 @@
     </aside>
   </main>
 
-  <!-- フッター（濃紺＋フッターナビ） -->
+  <!-- フッター -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <small>© U1-GARAGE</small>

@@ -1,9 +1,8 @@
-/* ===== 色・フォント ===== */
+/* ===== カラー・ベース ===== */
 :root{
-  --nav:#0b2a48;      /* 濃い紺：最上部帯 */
-  --nav2:#11385e;     /* ナビの濃紺 */
+  --nav:#0b2a48;      /* 上部細帯 */
+  --nav2:#11385e;     /* ヘッダー帯 */
   --tab:#0d2f52;      /* タブ帯 */
-  --accent:#d04b28;   /* 強調の赤橙（使い所少なめ） */
   --line:#e6eaee;
   --muted:#f5f6f7;
   --text:#333;
@@ -33,40 +32,57 @@ img{ max-width:100%; height:auto; display:block }
 .nav a:hover{ background:#0a2742 }
 .nav .line{ background:#06c755; color:#fff; border-radius:8px; padding:10px 14px }
 
-/* ===== ヒーロー ===== */
+/* ===== ヒーロー（R9風：左ロゴ/右イメージ） ===== */
 .hero{ position:relative; background:linear-gradient(#0b2a48,#11385e) }
 .hero-bg{
-  background:url("../img/hero.png") center/cover no-repeat; /* 横長の背景 */
-  width:100%; height:44vw; max-height:520px; min-height:260px; opacity:.92;
+  background:url("../img/hero.png") center/cover no-repeat; /* 横長背景 */
+  width:100%; height:42vw; max-height:520px; min-height:260px; opacity:.92;
 }
 .hero-inner{
-  position:absolute; inset:0; display:grid; place-content:center; text-align:center; color:#fff; padding:24px;
+  position:absolute; inset:0; display:grid; grid-template-columns: 1fr 1fr;
+  align-items:center; gap:24px; color:#fff; padding:24px 0;
   background:linear-gradient(0deg, rgba(0,0,0,.35), rgba(0,0,0,.35));
 }
-.hero h1{ margin:0 0 8px; font-weight:800; font-size:clamp(28px,4vw,44px); letter-spacing:.02em }
-.hero p{ margin:0 }
+.hero-left{ display:grid; place-items:start; }
+.hero-logo{ width:min(520px, 60%); max-height:140px; object-fit:contain }
+.hero-right{ display:grid; place-items:center }
+.hero-right img{ width:90%; max-width:640px }
 
 /* ===== タブ型ナビ（2段目） ===== */
 .tabnav{ background:var(--tab); border-top:1px solid #08243e; border-bottom:1px solid #08243e }
 .tabnav .container{ display:flex; gap:24px; overflow:auto; white-space:nowrap }
-.tabnav a{
-  color:#eaf3ff; text-decoration:none; padding:14px 6px; display:inline-block; font-weight:600; letter-spacing:.02em;
-}
+.tabnav a{ color:#eaf3ff; text-decoration:none; padding:14px 6px; display:inline-block; font-weight:600 }
 .tabnav a:hover{ color:#fff; text-decoration:underline }
+
+/* ===== タイルナビ ===== */
+.tiles{ background:#f0f2f5; border-bottom:1px solid var(--line) }
+.tiles-grid{
+  display:grid; grid-template-columns:repeat(6,1fr); gap:12px; padding:14px 0;
+}
+.tile{
+  display:grid; grid-template-rows: 56px auto; place-items:center; gap:6px;
+  padding:10px 8px; text-align:center; background:#fff; border:1px solid var(--line); border-radius:10px;
+  text-decoration:none; color:#223;
+}
+.tile img{ width:48px; height:48px; object-fit:contain }
+.tile span{ font-size:13px; font-weight:600 }
+.tile:hover{ box-shadow:0 8px 20px rgba(0,0,0,.06) }
+@media (max-width: 960px){ .tiles-grid{ grid-template-columns:repeat(3,1fr) } }
+@media (max-width: 600px){ .tiles-grid{ grid-template-columns:repeat(2,1fr) } }
 
 /* ===== メイン 2カラム ===== */
 .main{ display:grid; grid-template-columns: 1fr 320px; gap:24px; padding:24px 0 }
 .content{ display:grid; gap:20px }
 .sidebar{ display:grid; gap:20px }
 
-/* 左側の大きめ3ブロック（R9風の帯＋本文） */
+/* 左の3ブロック（色帯＋本文＋右にサムネ） */
 .promo{ border:1px solid var(--line); background:#fff; box-shadow:0 8px 20px rgba(0,0,0,.04) }
-.promo-head{ background:#f4eae4; padding:18px 20px; border-bottom:1px solid var(--line) }
+.promo-head{ padding:18px 20px; border-bottom:1px solid var(--line); background:#eee }
 .promo-head h2{ margin:0; font-size:22px; letter-spacing:.02em }
-.promo-head.blue{ background:#e1eaf6 }
-.promo-head.green{ background:#e4f2e6 }
+.promo-head.red{ background:#f3ddd6 }
+.promo-head.blue{ background:#dbe7f7 }
+.promo-head.green{ background:#dff1e3 }
 .promo-body{ display:grid; grid-template-columns: 1fr 320px; gap:16px; padding:16px 20px }
-.promo-text p{ margin:.2em 0 }
 .promo-thumb img{ border:1px solid var(--line) }
 
 /* トピックス */
@@ -83,7 +99,7 @@ img{ max-width:100%; height:auto; display:block }
 .sb-box{ border:1px solid var(--line); background:#fff; box-shadow:0 8px 20px rgba(0,0,0,.04) }
 .sb-box h3{ margin:0; padding:12px 14px; font-size:16px; background:#eef3f8; border-bottom:1px solid var(--line) }
 .sb-body{ padding:14px }
-.shop-info{ margin:10px 0 0; }
+.shop-info{ margin:10px 0 0 }
 .shop-info div{ display:grid; grid-template-columns: 64px 1fr; gap:12px; padding:6px 0; border-top:1px dashed var(--line) }
 .shop-info div:first-child{ border-top:none }
 .shop-info dt{ color:#666 }
@@ -98,11 +114,12 @@ img{ max-width:100%; height:auto; display:block }
 
 /* レスポンシブ */
 @media (max-width: 960px){
-  .main{ grid-template-columns:1fr; }
-  .promo-body{ grid-template-columns:1fr; }
+  .main{ grid-template-columns:1fr }
+  .promo-body{ grid-template-columns:1fr }
+  .hero-inner{ grid-template-columns:1fr; place-items:center }
+  .hero-logo{ width:68%; max-height:none }
 }
 @media (max-width: 720px){
-  .nav{ display:none }           /* 必要ならハンバーガー化を後で */
-  .tabnav .container{ gap:16px }
+  .nav{ display:none } /* 必要なら後でハンバーガー化 */
   .hero-bg{ height:58vw }
 }
