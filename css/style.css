@@ -1,0 +1,241 @@
+/* �糸������ゃ���遵�����若���img,logo.title,bgi,icon,bana */
+
+
+/* --------------------------------------------
+LAYOUT CSS
+-------------------------------------------- */
+/* COMMON */
+  body { background: #F0EFEA; }
+  #wrap { width: 100%; overflow: hidden; background: #081C3D url(../img/body-bg.png) repeat-y center top 150px; }
+  a { color: #32649B; text-decoration: none; }
+  a span{ color: #32649B; text-decoration: none; }
+  a:hover { color: #32649B; text-decoration: underline; }
+  a:hover img.hover { opacity:0.8; filter:alpha(opacity=80); -ms-filter: "alpha( opacity=80 )"; }
+/* GLOBAL-HEADER */
+  #hd {margin: 0 auto; }
+/* GLOBAL-NAV */
+  #nav { width: 1000px; margin: 0 auto; }
+/* GLOBAL-FOOTER */
+  #ft { width: 100%; margin: 0 auto; }
+/* GLOBAL-MAIN */
+  #ct { width: 1000px; margin: 30px auto 30px auto;}
+	#ct #left-clm { width: 750px; float: left; }
+	#ct #right-clm { width: 230px; float: right; }
+  .section { margin-bottom: 20px; }
+  .brm { width: 1000px; margin:30px auto 0; }
+  .brm li { display: inline-block; margin-right: 15px; font-size: 1.2em; }
+  .brm li,.brm li a { color: #666; }
+  .brm li:before { content:" > "; margin-right: 10px; }
+  .brm li:first-child:before { content:""; margin-right: 0; }
+
+/* --------------------------------------------
+HEADER CSS
+-------------------------------------------- */
+#hd .h1 { font-size: 1.2rem; font-weight: bold; float: left; line-height: 38px; color:#B2B6BD;}
+#hd .info .menu { float: right; line-height: 14px; padding-top: 10px; }
+#hd .info .menu li { float: left; margin-left: 10px; border-left: 1px solid #46526C; padding-left: 15px; font-size: 1.2rem; }
+#hd .info .menu li:first-child { border-left: none; }
+#hd .info .menu li a { color: #CAB461;}
+#hd .info .menu li a:hover { color: #F8F1BB;}
+#hd .info {width: 1000px; margin: 0 auto;}
+.hd_box {display: table; padding: 10px 0 5px 0; position:relative; z-index: 100;}
+.hd_logo { display: table-cell; float: left;}
+.hd_tel { display: table-cell;  position: absolute; top: 40px; right:0;}
+
+
+.info_bg{background:url(../img/hd-bg.png) repeat-x; width:100%;}
+.info_bg p{ color:#B2B6BD !important;}
+.logo { float: left; position: absolute; top:12px;}
+.tel { float: right; margin-top:20px;}
+.p-hd{ padding:15px 0 10px 0;}
+/* --------------------------------------------
+NAV CSS
+-------------------------------------------- */
+#nav { width: 100%; height: 62px; background: url(../img/nav-bg.png) repeat-x; text-align: center; }
+#nav li { float:left; }
+#nav li a{ float:left; }
+#nav ul {list-style: none; width:1000px; margin:auto;}
+#nav .nav01 { overflow: hidden; width: 104px; height: 62px; }
+#nav .nav02 { overflow: hidden; width: 170px; height: 62px; }
+#nav .nav03 { overflow: hidden; width: 154px; height: 62px; }
+#nav .nav04 { overflow: hidden; width: 254px; height: 62px; }
+#nav .nav05 { overflow: hidden; width: 198x; height: 62px; }
+#nav .nav06 { overflow: hidden; width: 120px; height: 62px; }
+#nav li a:hover img { margin-top: -62px; }
+
+/* --------------------------------------------
+NAV CSS
+-------------------------------------------- */
+.brdcrm { width: 1000px; margin: 20px auto 20px; z-index: 10000; }
+.brdcrm li { display: inline-block; margin-right: 15px; font-size: 1.2rem; }
+.brdcrm li:before { content:" > "; margin-right: 10px; }
+.brdcrm li:first-child:before { content:""; margin-right: 0; }
+
+/* --------------------------------------------
+MAINVISUAL CSS
+-------------------------------------------- */
+.mv_bg { width: 100%;background: #fff url(../img/mv-bgimg.png) no-repeat center; border-top:1px solid #3B496A; height: 330px; margin-top:-25px;}
+.mv {  width: 100%; height:330px; margin: 0 auto;}
+.mv .text { width: 1000px; height: 300px; margin: 0 auto; position: relative; }
+.mv .text img { position: absolute; left: 5px; top: 15%;}
+
+
+/* --------------------------------------------
+FOOTER CSS
+-------------------------------------------- */
+#ft {  }
+#ft .menu { background: #021C3F; border-top:1px solid #3B496A; width: 100%; height: 40px; }
+#ft .menu .box,#ft .info .box { width: 1000px; margin: 0 auto; }
+#ft .menu ul { text-align: left; }
+#ft .menu li { display: inline; float: left; margin-right: 15px; font-size: 1.2rem; border-right: 1px solid #3B496A; margin-top: 15px; padding: 0 15px 0 0; }
+#ft .menu li:last-child { border-right: 0; }
+#ft .menu li a { color: #CAB461;}
+#ft .menu li a:hover { color: #F8F1BB;}
+.btn-pagetop { overflow: hidden; width: 130px; height: 24px; display: inline-block;  margin-top:8px;}
+.btn-pagetop:hover img { margin-top: -24px; }
+#ft .info { background: #021C3F; border-top:1px solid #3B496A;}
+#ft .info .box { position: relative; padding: 24px 0; }
+#ft .info .ft_logo { float: left; margin-right: 20px;}
+#ft .info .company { line-height: 1.5em; font-size: 1.2em; color: #92969E;}
+#ft .copyright { position: absolute; right: 0; bottom: 40px; font-size: 1.1em; font-family: Arial; color:#92969E;}
+
+/* --------------------------------------------
+COMMON CSS
+-------------------------------------------- */
+.pagetitle { background: url(../img/ct-pagetitle-bg.png); border-bottom: 1px solid #3B496A;}
+.pagetitle .text { width: 1000px; margin: 0 auto; position: relative; height: 130px; background: url(../img/ct-pagetitle-img.png); background-repeat: no-repeat; background-position: right;}
+.pagetitle .text img { position: absolute; top:25%;}
+.cornertitle { background: url(../img/ct-corner-title.png); background-repeat:repeat-y; width: 1000px; line-height: 50px; padding: 0 25px; font-size: 1.6rem; color: #FFF; margin-bottom: 20px; letter-spacing: 0.05em; }
+.text { color: #666; font-size: 1.3rem; line-height: 1.6em; font-weight: lighter; letter-spacing: 0.02em; text-align: justify; }
+.text-m { color: #333; font-size: 1.3rem; line-height: 1.5em; font-weight: lighter; letter-spacing: 0.02em; text-align: justify; }
+.text-s { color: #999; font-size: 1.1rem; line-height: 1.3em; font-weight: lighter; letter-spacing: 0.02em; text-align: justify; }
+
+/* --------------------------------------------
+PAGE CSS
+-------------------------------------------- */
+.stocklist { position: relative; margin-bottom: 20px; }
+.stocklist .btn { overflow: hidden; width: 750px; height: 200px; display: inline-block; }
+.stocklist .btn:hover img,.feature .btn:hover img { margin-top: -200px; }
+.feature{ position: relative; margin-bottom: 30px; }
+.feature .btn { overflow: hidden; width: 750px; height: 200px; display: inline-block; }
+.feature .btn:hover img,.feature .btn:hover img { margin-top: -200px; }
+.topics { margin-bottom: 40px; }
+.topics .title { margin-bottom: 15px; }
+.topics li { font-size: 1.3em; line-height: 34px; border-bottom: 1px solid #CCC; margin-bottom: 5px; letter-spacing: 0.1em; }
+.topics li:last-child { margin-bottom: 0; }
+.topics li .date { margin-right: 15px; }
+.topics dl:first-child { margin-top: 0; }
+.topics dl { border-bottom: 1px solid #CCC; padding-bottom: 5px; margin-top: 10px; }
+.topics dt,.topics dd { font-size: 1.3em; line-height: 18px; margin-bottom: 5px; letter-spacing: 0.1em; }
+.topics dl dt { float: left; width: 100px; }
+.topics dl dd { float: right; width: 640px; }
+#right-clm .box { background: #010729; padding:5px 3px 3px 3px; text-align: center;}
+#right-clm .box p{ color:#D2D6DD;}
+.accessmap { border:2px solid #4C566F; margin-bottom:20px;}
+.shopinfo { border:2px solid #4C566F; margin-bottom:20px;}
+.shopinfo .title { font-weight: bold; color: #CAB461; font-size: 1.4em; line-height: 1.6em; border-bottom: 1px solid #4C566F;}
+.shopinfo .address { font-size: 1.3em; line-height: 1.6em; border-bottom: 1px solid #4C566F; margin-bottom: 10px; padding: 0 5px; }
+.shopinfo dl { border-bottom: 1px solid #4C566F; margin-bottom: 10px;}
+.shopinfo dl:last-child { margin-bottom: 0; }
+.shopinfo dt,.shopinfo dd { display: inline-block; line-height: 1.4em; font-size: 1.3em; padding: 0 5px; color:#D2D6DD;}
+.shopinfo dt { padding-right: 10px; }
+.btn-kaitori { overflow: hidden; width: 1000px; height: 120px; display: inline-block; }
+.btn-kaitori:hover img { margin-top: -120px; }
+.ct-left { width: 580px; float: left; }
+.ct-right { width: 400px; float: right; }
+.company-table .tr { border-bottom: 1px solid #4C566F; }
+.company-table .th,.company-table .td { padding: 15px; font-size: 1.3rem; border-bottom: 1px solid #ccc; }
+.rightimg { float: right; margin: 0 0 20px 20px;}
+
+.banner_shop_inquiry {background: url(../img/ft_inquiry_ban.png); width:1000px; height:135px; position: relative;}
+.btn-shop_inquiry { overflow: hidden; width: 322px; height: 72px; display: inline-block; position: absolute; top: 40px; right: 15px;}
+.btn-shop_inquiry:hover img { margin-top: -72px; }
+
+.form .btn, .loan_form .btn { overflow: hidden; width: 290px; height: 60px; border: none; background: #FFF; padding: 0; display: inline-block; }
+.form .btn:hover input, .loan_form .btn:hover input { margin-top: -60px; }
+.form .select { width: 120px; margin-right: 10px; }
+.form .table, .loan_form .table { border: 1px solid #ccc; margin-bottom: 20px; }
+.form .table .th,.form .table .td, .loan_form .table .th,.loan_form .table .td { border: 1px solid #ccc; padding: 10px; }
+.form .table .th, .loan_form .table .th { vertical-align: middle; font-size: 1.4rem; width: 230px; background: #010729; padding-left: 10px;}
+.form .table .th { font-weight: bold;}
+.form .table .td, .loan_form .table .td { background: #fff;}
+.form .table .th p, .loan_form .table .th p { line-height: 25px; display: inline-block; color:#D1D6DE;}
+.form .table .th .ct-form-img-required, .loan_form .table .th .ct-form-img-required { float: right; }
+.btn-send { overflow: hidden; width: 400px; height: 70px; display: inline-block; }
+.btn-send:hover img { margin-top: -70px; }
+
+.carlist_toggle{ color: #3366CC; text-decoration: none; }
+.carlist_toggle:hover { color: #3366CC; text-decoration: underline; }
+
+#map { width: 640px; height: 300px; border: 1px solid #CCC; }
+
+.border_w {border:2px solid #fff;}
+
+
+.banner_loan_inquiry {background: url(../img/loan_inquiry_ban.png); width:1000px; height:120px; position: relative;}
+.btn-loan_inquiry { overflow: hidden; width: 322px; height: 72px; display: inline-block; position: absolute; top: 25px; right: 15px;}
+.btn-loan_inquiry:hover img { margin-top: -72px; }
+.loan_point_cnt li { display: inline-block; width:190px; vertical-align: top; margin-right: 9px;}
+.loan_point_cnt li:last-child {margin-right: 0px;}
+
+/* 201903菴遵�����㏍�若�括�潟��莨若�帥�����若�� */
+select{
+  outline:none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  background: none transparent;
+  vertical-align: middle;
+  font-size: inherit;
+  color: inherit;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 8px 12px;
+  border: 1px solid #CCC;
+  color:#666;
+  background: #F8F8F8;
+  height: 40px;
+  border-radius:3px;
+  font-size: 1.4rem;
+}
+select option{
+background-color: #F8F8F8;
+color: #333;
+}
+select::-ms-expand {
+display: none;
+}
+select:-moz-focusring {
+color: transparent;
+text-shadow: 0 0 0 #828c9a;
+}
+.loan_form .select-wrap {
+  position: relative;
+}
+.loan_form .select-wrap:before {
+  content: "";
+  width: 17px;
+  height: 10px;
+  z-index: 1;
+  position: absolute;
+  right: 8px;
+  top: 15px;
+  line-height: 40px;
+  pointer-events: none;
+  background: url(../img/select_arrow.png) no-repeat center center;
+  background-size: 17px 10px;
+}
+.select-s {
+  width: 66px;
+}
+.select-m {
+  width: 170px;
+}
+.loan_form .textarea {
+  background: #F8F8F8;
+  border-radius: 2px;
+}
