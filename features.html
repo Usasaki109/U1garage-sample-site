@@ -3,12 +3,44 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="https://usasaki109.github.io/U1garage-sample-site/">
   <title>U1の特徴 | U1-GARAGE</title>
   <meta name="description" content="U1-GARAGEの強み・特徴をご紹介します。">
   <meta name="theme-color" content="#0b1a3c">
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- ページ専用スタイル（サンプルと同じ帯＋レイアウト） -->
+  <style>
+    .page-hero{
+      color:#fff;
+      background:
+        linear-gradient(180deg, rgba(11,26,60,.86), rgba(11,26,60,.55)),
+        url("img/page-hero.jpg") center/cover no-repeat,
+        radial-gradient(circle at 20% 0%, #172554, #0b1a3c);
+    }
+    .page-hero__in{ padding:48px 0; }
+    .page-hero h1{ margin:0 0 4px; font-size:36px; font-weight:800; letter-spacing:.02em; }
+    .page-hero .sub{ margin:0; color:#e5e7eb; }
+
+    .breadcrumb{ font-size:12px; color:#6b7280; margin:12px 0 24px; }
+    .breadcrumb a{ color:#1c3474; }
+    .breadcrumb .sep{ margin:0 6px; color:#9ca3af; }
+
+    .feature-wrap{ display:flex; flex-direction:column; gap:32px; }
+    .band{ background:#fff; border-radius:14px; box-shadow:0 8px 24px rgba(0,0,0,.08); overflow:hidden; }
+    .band__title{ background:#0b1a3c; color:#fff; padding:10px 16px; font-weight:700; letter-spacing:.01em; }
+    .band__body{ padding:16px; display:grid; grid-template-columns:1fr 360px; gap:24px; align-items:start; }
+    .band__body--single{ grid-template-columns:1fr; }
+    .band__img img{ width:100%; height:auto; border-radius:12px; }
+    .badge-box{ display:flex; justify-content:center; align-items:center; padding:8px; }
+    .badge-box img{ max-width:320px; height:auto; border-radius:10px; }
+    .inline-links{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+    .inline-links a{ color:#0b67c2; text-decoration:underline; }
+    .em{ color:#c62828; font-weight:700; }
+    @media (max-width: 960px){ .band__body{ grid-template-columns:1fr; } }
+  </style>
 </head>
 <body id="top">
   <a class="skip" href="#main">本文へスキップ</a>
@@ -33,20 +65,20 @@
         <span></span><span></span><span></span>
       </button>
 
-	  <nav id="globalnav" class="nav" aria-label="グローバルナビ">
-	    <ul class="nav__list">
-	      <li><a href="https://usasaki109.github.io/U1garage-sample-site/index.html#about">会社概要</a></li>
-	      <li><a href="https://usasaki109.github.io/U1garage-sample-site/index.html#autoshow">オートショー活動</a></li>
-	      <li><a href="https://usasaki109.github.io/U1garage-sample-site/features.html" aria-current="page">U1の特徴</a></li>
-	      <li><a href="https://usasaki109.github.io/U1garage-sample-site/index.html#maintenance">修理・メンテナンス</a></li>
-	      <li><a href="https://usasaki109.github.io/U1garage-sample-site/index.html#contact">お問合せ</a></li>
-	      <li class="line"><a href="https://usasaki109.github.io/U1garage-sample-site/index.html#line">LINE</a></li>
-	    </ul>
-	  </nav>
+      <nav id="globalnav" class="nav" aria-label="グローバルナビ">
+        <ul class="nav__list">
+          <li><a href="index.html#about">会社概要</a></li>
+          <li><a href="index.html#autoshow">オートショー活動</a></li>
+          <li><a href="features.html" aria-current="page">U1の特徴</a></li>
+          <li><a href="index.html#maintenance">修理・メンテナンス</a></li>
+          <li><a href="index.html#contact">お問合せ</a></li>
+          <li class="line"><a href="index.html#line">LINE</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <!-- Page Hero（サンプル風のタイトル帯） -->
+  <!-- Page Hero -->
   <section class="page-hero" role="img" aria-label="U1の特徴">
     <div class="container page-hero__in">
       <h1>U1の特徴</h1>
@@ -55,26 +87,24 @@
   </section>
 
   <main id="main">
-    <!-- パンくず -->
     <nav class="container breadcrumb" aria-label="パンくず">
       <a href="index.html">ホーム</a><span class="sep">›</span><span>U1の特徴</span>
     </nav>
 
-    <!-- 本文（サンプル同等のセクション構成） -->
     <section class="section">
       <div class="container feature-wrap">
 
-        <!-- Band 1：テキストのみ -->
+        <!-- Band 1 -->
         <section class="band">
           <div class="band__title">車が大好きなオーナーが始めた工場です</div>
           <div class="band__body band__body--single">
             <p><span class="em">当店は、幅広い車種の在庫と整備体制を備えています。</span><br>
               もちろん、在庫以外の車両もお取り寄せの上で一緒に探すこともできます。新車もお任せください！</p>
-            <p>（このテキストは後で差し替えOK。サンプル同様のトーンで入れてあります）</p>
+            <p>（このテキストは後で差し替えOK）</p>
           </div>
         </section>
 
-        <!-- Band 2：右に写真 -->
+        <!-- Band 2 -->
         <section class="band">
           <div class="band__title">お車のことならお任せください</div>
           <div class="band__body">
@@ -88,13 +118,12 @@
               </ul>
             </div>
             <div class="band__img">
-              <!-- 後で img/feature-02.jpg を配置してください -->
               <img src="img/feature-02.jpg" alt="工場外観または在庫車の様子（差し替え可）" loading="lazy">
             </div>
           </div>
         </section>
 
-        <!-- Band 3：右に写真（最新設備） -->
+        <!-- Band 3 -->
         <section class="band">
           <div class="band__title">最新の設備でお客様をサポート</div>
           <div class="band__body">
@@ -104,13 +133,12 @@
               <p>（文章は自由に変更してください）</p>
             </div>
             <div class="band__img">
-              <!-- 後で img/feature-03.jpg を配置してください -->
               <img src="img/feature-03.jpg" alt="整備風景（差し替え可）" loading="lazy">
             </div>
           </div>
         </section>
 
-        <!-- Band 4：買取/下取（右にバナー） -->
+        <!-- Band 4 -->
         <section class="band">
           <div class="band__title">買取・下取り</div>
           <div class="band__body">
@@ -119,7 +147,6 @@
                 状態・年式・相場を丁寧に評価し、納得の査定をご提案します。</p>
             </div>
             <div class="badge-box">
-              <!-- 後で img/feature-buy-banner.jpg を配置してください（横長バナー想定） -->
               <img src="img/feature-buy-banner.jpg" alt="買取強化中バナー（差し替え可）" loading="lazy">
             </div>
           </div>
@@ -140,22 +167,23 @@
         <p>〒000-0000 千葉県◯◯市◯◯◯0-0-0（ダミー）</p>
         <p>TEL 00-1234-5678 / FAX 00-0000-0000</p>
       </div>
-	  <nav class="footer__nav" aria-label="フッターナビ">
-	    <ul>
-	      <li><a href="https://usasaki109.github.io/U1garage-sample-site/index.html#about">会社概要</a></li>
-	      <li><a href="https://usasaki109.github.io/U1garage-sample-site/index.html#autoshow">オートショー活動</a></li>
-	      <li><a href="https://usasaki109.github.io/U1garage-sample-site/features.html" aria-current="page">U1の特徴</a></li>
-	      <li><a href="https://usasaki109.github.io/U1garage-sample-site/index.html#maintenance">修理・メンテナンス</a></li>
-	      <li><a href="https://usasaki109.github.io/U1garage-sample-site/index.html#contact">お問合せ</a></li>
-	      <li><a href="https://usasaki109.github.io/U1garage-sample-site/index.html#line">LINE</a></li>
-	    </ul>
-	  </nav>
+      <nav class="footer__nav" aria-label="フッターナビ">
+        <ul>
+          <li><a href="index.html#about">会社概要</a></li>
+          <li><a href="index.html#autoshow">オートショー活動</a></li>
+          <li><a href="features.html" aria-current="page">U1の特徴</a></li>
+          <li><a href="index.html#maintenance">修理・メンテナンス</a></li>
+          <li><a href="index.html#contact">お問合せ</a></li>
+          <li><a href="index.html#line">LINE</a></li>
+        </ul>
+      </nav>
     </div>
     <div class="pagetop"><a href="#top">▲ PAGE TOP</a></div>
     <div class="copy">© U1-GARAGE. All Rights Reserved.</div>
   </footer>
 
   <script>
+    // モバイルナビ開閉
     const btn = document.querySelector('.nav-toggle');
     const nav = document.getElementById('globalnav');
     if (btn && nav) {
@@ -164,16 +192,13 @@
         btn.setAttribute('aria-expanded', String(open));
       });
     }
-
-    // クリック時：モバイルメニューを閉じる。遷移は邪魔しない。
-    document.querySelectorAll('.nav__list a').forEach(a => {
+    document.querySelectorAll('.nav__list a').forEach(a=>{
       a.addEventListener('click', () => {
         nav?.classList.remove('is-open');
-        btn?.setAttribute('aria-expanded', 'false');
+        btn?.setAttribute('aria-expanded','false');
       });
     });
-
-    // スクロール時のヘッダー影（既存のままでOK）
+    // スクロール時のヘッダー影
     const header = document.querySelector('.header');
     const onScroll = () => {
       if (window.scrollY > 8) header.classList.add('is-scrolled');
@@ -182,6 +207,5 @@
     window.addEventListener('scroll', onScroll);
     onScroll();
   </script>
-
 </body>
 </html>
