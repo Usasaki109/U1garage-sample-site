@@ -154,3 +154,46 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
   .profile{ grid-template-columns:1fr; }
   .cards, .features, .menu, .contact { grid-template-columns:1fr; }
 }
+
+/* ===== Feature Page ===== */
+.page-hero{
+  color:#fff;
+  background:
+    linear-gradient(180deg, rgba(11,26,60,.86), rgba(11,26,60,.55)),
+    url("../img/page-hero.jpg") center/cover no-repeat,   /* 任意。なければ濃紺グラデのみ */
+    radial-gradient(circle at 20% 0%, #172554, var(--navy-900));
+}
+.page-hero__in{ padding:48px 0; }
+.page-hero h1{ margin:0 0 4px; font-size:36px; font-weight:800; letter-spacing:.02em; }
+.page-hero .sub{ margin:0; color:#e5e7eb; }
+
+.breadcrumb{ font-size:12px; color:var(--muted); margin:12px 0 24px; }
+.breadcrumb a{ color:var(--navy-700); }
+.breadcrumb .sep{ margin:0 6px; color:#9ca3af; }
+
+.feature-wrap{ display:flex; flex-direction:column; gap:32px; }
+
+/* サンプル風の濃紺帯＋本文レイアウト */
+.band{ background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; }
+.band__title{
+  background:var(--navy-900); color:#fff;
+  padding:10px 16px; font-weight:700; letter-spacing:.01em;
+}
+.band__body{
+  padding:16px;
+  display:grid; grid-template-columns:1fr 360px; gap:24px; align-items:start;
+}
+.band__body--single{ grid-template-columns:1fr; }
+.band__img img{ width:100%; height:auto; border-radius:12px; }
+.badge-box{ display:flex; justify-content:center; align-items:center; padding:8px; }
+.badge-box img{ max-width:320px; height:auto; border-radius:10px; }
+
+.inline-links{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+.inline-links a{ color:#0b67c2; text-decoration:underline; }
+
+/* 赤文字の強調（サンプルの赤見出し風） */
+.em{ color:#c62828; font-weight:700; }
+
+@media (max-width: 960px){
+  .band__body{ grid-template-columns:1fr; }
+}
