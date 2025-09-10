@@ -1,173 +1,267 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>U1-GARAGE | 自動車整備・車検・修理</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>U1-GARAGE | 自動車整備・修理・メンテナンス</title>
+  <meta name="description" content="U1-GARAGEは国産・輸入車の修理・メンテナンスに対応。お気軽にご相談ください。" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- フォント（お好みで外してOK） -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- 画面リーダー用スキップ -->
+  <a class="skip-link" href="#main">本文へスキップ</a>
 
-  <!-- 上部の細帯 -->
+  <!-- Top info bar -->
   <div class="topbar">
-    <div class="container">
-      <small>中古車・整備のことなら U1-GARAGE へ</small>
-      <a class="tel" href="tel:0012345678">TEL 00-1234-5678</a>
+    <div class="container topbar__inner">
+      <p class="topbar__note">中古車買取/整備のご相談はU1-GARAGEへ。まずはお電話ください。</p>
+      <p class="topbar__tel">TEL <a href="tel:0012345678">00-1234-5678</a></p>
     </div>
   </div>
 
-  <!-- ヘッダー（ロゴ左 / メニュー右） -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/">
-        <img src="img/hd-logo.png" alt="U1-GARAGE" height="56">
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="#">
+        <span class="brand__main">U1-GARAGE</span>
+        <span class="brand__sub">Automotive Service</span>
       </a>
 
-      <nav class="nav">
-        <a href="#about">会社概要</a>
-        <a href="#autoshow">オートショー活動</a>
-        <a href="#feature">U1の特徴</a>
-        <a href="#maintenance">修理・メンテナンス</a>
-        <a href="#contact">お問合せ</a>
-        <a class="line" href="#line">LINE</a>
+      <button class="nav-toggle" aria-controls="globalnav" aria-expanded="false" aria-label="メニューを開閉">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="globalnav" class="nav" aria-label="グローバルナビ">
+        <ul class="nav__list">
+          <li><a href="#about">会社概要</a></li>
+          <li><a href="#autoshow">オートショー活動</a></li>
+          <li><a href="#features">U1の特徴</a></li>
+          <li><a href="#maintenance">修理・メンテナンス</a></li>
+          <li><a href="#contact">お問合せ</a></li>
+          <li class="nav__line"><a href="#line">LINE</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <!-- ヒーロー（左ロゴ/右イメージの2カラム重ね） -->
-  <section class="hero">
-    <div class="hero-bg" role="img" aria-label="ヒーロー背景"></div>
-    <div class="container hero-inner">
-      <div class="hero-left">
-        <img class="hero-logo" src="img/hd-logo.png" alt="U1-GARAGE ロゴ">
-      </div>
-      <div class="hero-right">
-        <!-- 車写真などを置く場合：img/hero_car.png を入れて <img src="img/hero_car.png" alt=""> -->
+  <!-- Hero -->
+  <section class="hero" role="img" aria-label="ガレージのイメージ">
+    <div class="container hero__inner">
+      <h1 class="hero__title">あなたの街の、頼れる整備工場。</h1>
+      <p class="hero__lead">U1-GARAGEは、点検・修理・車検・メンテナンスをワンストップでサポート。<br>まずはお気軽にご相談ください。</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="tel:0012345678">TEL 00-1234-5678 に電話</a>
+        <a class="btn" href="#contact">お問い合わせへ</a>
       </div>
     </div>
   </section>
 
-  <!-- 濃紺のタブ型ナビ（R9の2段目相当） -->
-  <nav class="tabnav">
-    <div class="container">
-      <a href="#about">会社概要</a>
-      <a href="#autoshow">オートショー活動</a>
-      <a href="#feature">U1の特徴</a>
-      <a href="#maintenance">修理・メンテナンス</a>
-      <a href="#contact">お問合せ</a>
-      <a href="#line">LINE</a>
-    </div>
-  </nav>
-
-  <!-- タイルナビ（画像ボタン） -->
-  <section class="tiles">
-    <div class="container tiles-grid">
-      <a class="tile" href="#about">
-        <img src="img/nav_about.png" alt=""><span>会社概要</span>
-      </a>
-      <a class="tile" href="#autoshow">
-        <img src="img/nav_autoshow.png" alt=""><span>オートショー活動</span>
-      </a>
-      <a class="tile" href="#feature">
-        <img src="img/nav_feature.png" alt=""><span>U1の特徴</span>
-      </a>
-      <a class="tile" href="#maintenance">
-        <img src="img/nav_maintenance.png" alt=""><span>修理・メンテナンス</span>
-      </a>
-      <a class="tile" href="#contact">
-        <img src="img/nav_contact.png" alt=""><span>お問合せ</span>
-      </a>
-      <a class="tile" href="#line">
-        <img src="img/nav_line.png" alt=""><span>LINE</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- メイン 2カラム：左=3ブロック / 右=サイド -->
-  <main class="container main">
-    <section class="content">
-      <article id="about" class="promo">
-        <div class="promo-head red"><h2>会社概要</h2></div>
-        <div class="promo-body">
-          <div class="promo-text">
-            <p>U1-GARAGE の基本情報・理念・所在地・営業時間をご案内します。</p>
-          </div>
-          <div class="promo-thumb">
-            <img src="img/promo_about.jpg" alt="会社概要">
-          </div>
+  <main id="main">
+    <!-- About / 会社概要（要素は後で差し替えOK） -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">会社概要</h2>
+          <p class="section__sub">Company Profile</p>
         </div>
-      </article>
 
-      <article id="feature" class="promo">
-        <div class="promo-head blue"><h2>U1の特徴</h2></div>
-        <div class="promo-body">
-          <div class="promo-text">
-            <p>経験豊富なメカニックと設備で、日常メンテから各種修理・カスタムまで幅広く対応します。</p>
+        <div class="profile">
+          <div class="profile__tablewrap">
+            <table class="profile__table">
+              <tbody>
+                <tr><th>会社名</th><td>U1-GARAGE（ユーワンガレージ）</td></tr>
+                <tr><th>設立</th><td>令和◯年◯月（ダミー）</td></tr>
+                <tr><th>所在地</th><td>〒000-0000　千葉県◯◯市◯◯◯ 0-0-0（ダミー）</td></tr>
+                <tr><th>電話番号</th><td>00-1234-5678</td></tr>
+                <tr><th>FAX</th><td>00-0000-0000</td></tr>
+                <tr><th>メール</th><td><a href="mailto:info@u1-garage.jp">info@u1-garage.jp</a></td></tr>
+                <tr><th>従業員</th><td>◯名（ダミー）</td></tr>
+                <tr><th>代表者</th><td>代表　山田 太郎（ダミー）</td></tr>
+                <tr><th>事業内容</th><td>自動車整備・修理／車検・点検／部品販売 ほか</td></tr>
+                <tr><th>許認可</th><td>関東運輸局 認証工場 第000000号（ダミー）</td></tr>
+              </tbody>
+            </table>
           </div>
-          <div class="promo-thumb">
-            <img src="img/promo_feature.jpg" alt="U1の特徴">
-          </div>
+          <figure class="profile__image">
+            <!-- ダミー画像。/img/garage.jpg を置けば上書き表示されます -->
+            <img src="https://placehold.co/720x480?text=Garage+Photo" alt="店舗外観（ダミー）">
+          </figure>
         </div>
-      </article>
-
-      <article id="maintenance" class="promo">
-        <div class="promo-head green"><h2>修理・メンテナンス</h2></div>
-        <div class="promo-body">
-          <div class="promo-text">
-            <p>法定点検・車検・電装系・ブレーキ・足回り・診断機対応ほか、各種メンテナンスを承ります。</p>
-          </div>
-          <div class="promo-thumb">
-            <img src="img/promo_maintenance.jpg" alt="修理・メンテナンス">
-          </div>
-        </div>
-      </article>
-
-      <section class="topics">
-        <h2>TOPICS</h2>
-        <ul class="topics-list">
-          <li><time>2025.09.10</time><a href="#">臨時休業のお知らせ（サンプル）</a></li>
-          <li><time>2025.08.29</time><a href="#">夏季点検キャンペーン実施（サンプル）</a></li>
-          <li><time>2025.08.12</time><a href="#">整備事例を追加しました（サンプル）</a></li>
-        </ul>
-      </section>
+      </div>
     </section>
 
-    <aside class="sidebar">
-      <section class="sb-box">
-        <h3>ACCESS MAP</h3>
-        <div class="sb-body">
-          <img src="img/map.jpg" alt="アクセスマップ">
+    <!-- Auto show / 活動（ダミーセクション） -->
+    <section id="autoshow" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">オートショー活動</h2>
+          <p class="section__sub">Auto Show & Event</p>
         </div>
-      </section>
+        <p class="muted">ここにイベント参加実績や写真を掲載します（後で差し替え）。</p>
+        <div class="cards">
+          <article class="card">
+            <img src="https://placehold.co/480x300?text=Event+1" alt="イベント写真（ダミー1）">
+            <div class="card__body">
+              <h3 class="card__title">◯◯オートサロン出展</h3>
+              <p class="card__text">出展車両の整備・搬入出対応などを実施。</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://placehold.co/480x300?text=Event+2" alt="イベント写真（ダミー2）">
+            <div class="card__body">
+              <h3 class="card__title">地域イベント整備ブース</h3>
+              <p class="card__text">簡易点検や無料相談を実施しました。</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://placehold.co/480x300?text=Event+3" alt="イベント写真（ダミー3）">
+            <div class="card__body">
+              <h3 class="card__title">◯◯カーミーティング</h3>
+              <p class="card__text">来場者向けメンテアドバイスを提供。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <section class="sb-box">
-        <h3>SHOP INFO</h3>
-        <div class="sb-body">
-          <img src="img/shop.jpg" alt="店舗写真">
-          <dl class="shop-info">
-            <div><dt>店名</dt><dd>U1-GARAGE</dd></div>
-            <div><dt>住所</dt><dd>〒000-0000 千葉県〇〇市〇〇 1-2-3</dd></div>
-            <div><dt>TEL</dt><dd><a href="tel:0012345678">00-1234-5678</a></dd></div>
-            <div><dt>営業時間</dt><dd>10:00–19:00（水曜定休）</dd></div>
-          </dl>
+    <!-- Features / U1の特徴 -->
+    <section id="features" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">U1の特徴</h2>
+          <p class="section__sub">Characteristics of “U1”</p>
         </div>
-      </section>
-    </aside>
+        <ul class="features">
+          <li class="feature">
+            <div class="feature__icon" aria-hidden="true">🛠</div>
+            <h3 class="feature__title">国家資格整備士が対応</h3>
+            <p class="feature__text">経験豊富なメカニックが確かな技術でサポート。</p>
+          </li>
+          <li class="feature">
+            <div class="feature__icon" aria-hidden="true">🚗</div>
+            <h3 class="feature__title">国産・輸入車OK</h3>
+            <p class="feature__text">軽自動車からハイパフォーマンス車まで幅広く対応。</p>
+          </li>
+          <li class="feature">
+            <div class="feature__icon" aria-hidden="true">📅</div>
+            <h3 class="feature__title">柔軟な予約制</h3>
+            <p class="feature__text">事前予約で代車手配・短時間メンテもスムーズ。</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Maintenance / 修理・メンテナンス -->
+    <section id="maintenance" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">修理・メンテナンス</h2>
+          <p class="section__sub">Maintenance Menu</p>
+        </div>
+        <div class="menu">
+          <div class="menu__item">
+            <h3>法定点検・車検</h3>
+            <p>点検〜整備〜検査まで一貫対応。事前見積で安心。</p>
+          </div>
+          <div class="menu__item">
+            <h3>一般整備</h3>
+            <p>ブレーキ・足回り・電装系など不具合診断と修理。</p>
+          </div>
+          <div class="menu__item">
+            <h3>オイル/タイヤ/バッテリー</h3>
+            <p>消耗品交換は即日対応可（在庫状況により）。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Access / アクセスマップ（埋め込みURLを差し替え） -->
+    <section id="access" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">アクセスマップ</h2>
+          <p class="section__sub">Access Map</p>
+        </div>
+
+        <!-- ▼▼▼ ここを差し替え：Googleマップの「地図を埋め込む」で得たURLを src に貼るだけ ▼▼▼ -->
+        <div class="map">
+          <iframe
+            title="Google Map"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.771996770403!2d139.764936!3d35.681236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bf62b37e0f5%3A0xf9f0f9fd65f1b43!2z5p2x5Lqs6YO95p2x5Lqs5biC!5e0!3m2!1sja!2sjp!4v1700000000000">
+          </iframe>
+        </div>
+        <!-- ▲▲▲ 差し替えポイント：上の src を自分のロケーションURLに変更すれば即反映 ▲▲▲ -->
+
+        <!-- ※依頼によりマップ下の横長バナー画像は設置しません -->
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">お問合せ</h2>
+          <p class="section__sub">Contact</p>
+        </div>
+        <div class="contact">
+          <div class="contact__block">
+            <h3>お電話</h3>
+            <p><a class="tel" href="tel:0012345678">00-1234-5678</a></p>
+          </div>
+          <div class="contact__block">
+            <h3>メール</h3>
+            <p><a href="mailto:info@u1-garage.jp">info@u1-garage.jp</a></p>
+          </div>
+          <div id="line" class="contact__block">
+            <h3>LINE</h3>
+            <p><a class="btn" href="https://line.me/R/ti/p/@your-id" target="_blank" rel="noopener">友だち追加（ダミー）</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- フッター -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <small>© U1-GARAGE</small>
-      <nav class="foot-nav">
-        <a href="#about">会社概要</a>
-        <a href="#autoshow">オートショー活動</a>
-        <a href="#feature">U1の特徴</a>
-        <a href="#maintenance">修理・メンテナンス</a>
-        <a href="#contact">お問合せ</a>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="brand brand--footer">
+          <span class="brand__main">U1-GARAGE</span>
+          <span class="brand__sub">Automotive Service</span>
+        </div>
+        <p class="footer__addr">〒000-0000 千葉県◯◯市◯◯◯0-0-0（ダミー）</p>
+        <p class="footer__tel">TEL 00-1234-5678 / FAX 00-0000-0000</p>
+      </div>
+      <nav class="footer__nav" aria-label="フッターナビ">
+        <ul>
+          <li><a href="#about">会社概要</a></li>
+          <li><a href="#autoshow">オートショー活動</a></li>
+          <li><a href="#features">U1の特徴</a></li>
+          <li><a href="#maintenance">修理・メンテナンス</a></li>
+          <li><a href="#contact">お問合せ</a></li>
+          <li><a href="#line">LINE</a></li>
+        </ul>
       </nav>
     </div>
+    <div class="pagetop"><a href="#top">▲ PAGE TOP</a></div>
+    <div class="footer__copy">© U1-GARAGE. All Rights Reserved.</div>
   </footer>
 
+  <script>
+    // モバイルナビ開閉
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('globalnav');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('is-open');
+      });
+    }
+  </script>
 </body>
 </html>
