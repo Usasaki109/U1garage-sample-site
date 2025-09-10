@@ -4,19 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <base href="https://usasaki109.github.io/U1garage-sample-site/">
-  <title>お問合せ | U1-GARAGE</title>
-  <meta name="description" content="U1-GARAGEへのお問合せはこちら。電話・メール・LINEの3つの方法でご連絡いただけます。">
+  <title>LINE | U1-GARAGE</title>
+  <meta name="description" content="U1-GARAGEのLINEお問合せページ。QRコードから友だち追加してメッセージをお送りください。">
   <meta name="theme-color" content="#0b1a3c">
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <!-- ページ専用の軽いスタイル（ヒーローとQRだけ） -->
+
+  <!-- ページ専用の最小スタイル（ヒーロー＆QR） -->
   <style>
     .page-hero{
       color:#fff;
       background:
         linear-gradient(180deg, rgba(11,26,60,.86), rgba(11,26,60,.55)),
-        url("img/page-hero-contact.jpg") center/cover no-repeat,
+        url("img/page-hero-line.jpg") center/cover no-repeat,
         radial-gradient(circle at 20% 0%, #172554, #0b1a3c);
     }
     .page-hero__in{ padding:48px 0; }
@@ -27,10 +28,10 @@
     .breadcrumb a{ color:#1c3474; }
     .breadcrumb .sep{ margin:0 6px; color:#9ca3af; }
 
-    /* QR表示（カード中央に正方形で） */
-    .qr-box{ display:flex; justify-content:center; align-items:center; padding-top:8px; }
-    .qr{ width:180px; aspect-ratio:1; object-fit:contain; border:1px solid var(--line); border-radius:10px; }
-    @media (max-width: 720px){ .qr{ width:150px; } }
+    /* 正方形QRを中央に綺麗に表示 */
+    .qr-wrap{ display:flex; align-items:center; justify-content:center; padding:16px 0 8px; }
+    .qr{ width:280px; max-width:80vw; aspect-ratio:1/1; object-fit:contain; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.12); }
+    .lead{ margin:0 0 14px; }
   </style>
 </head>
 <body id="top">
@@ -62,57 +63,45 @@
           <li><a href="autoshow.html">オートショー活動</a></li>
           <li><a href="features.html">U1の特徴</a></li>
           <li><a href="maintenance.html">修理・メンテナンス</a></li>
-          <li><a href="contact.html" aria-current="page">お問合せ</a></li>
-          <li class="line"><a href="line.html">LINE</a></li>
+          <li><a href="contact.html">お問合せ</a></li>
+          <li class="line"><a href="line.html" aria-current="page">LINE</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- Page Hero -->
-  <section class="page-hero" role="img" aria-label="お問合せ">
+  <section class="page-hero" role="img" aria-label="LINE">
     <div class="container page-hero__in">
-      <h1>お問合せ</h1>
-      <p class="sub">Contact</p>
+      <h1>LINE</h1>
+      <p class="sub">LINE Contact</p>
     </div>
   </section>
 
   <main id="main">
     <nav class="container breadcrumb" aria-label="パンくず">
-      <a href="index.html">ホーム</a><span class="sep">›</span><span>お問合せ</span>
+      <a href="index.html">ホーム</a><span class="sep">›</span><span>LINE</span>
     </nav>
 
     <section class="section alt">
       <div class="container">
         <header class="sec-head">
-          <h2>お問合せ</h2>
-          <p class="sub">Contact</p>
+          <h2>LINE でのお問合せ</h2>
+          <p class="sub">Add us on LINE</p>
         </header>
 
-        <!-- ここに任意の説明テキストを入れてください -->
-        <p class="muted" style="margin:-4px 0 18px;">サンプルテキスト：お問合せは下記のいずれかの方法で承ります。営業時間外はメール・LINEをご利用ください。</p>
+        <p class="lead">
+          LINEメッセージでもお問合せいただけます。1営業日後も返信が無い場合はお手数ですがお電話にてご連絡をお願いいたします。
+        </p>
 
-        <!-- トップと同じ3カード -->
         <div class="contact">
-          <div class="contact__block">
-            <h3>お電話</h3>
-            <p><a class="tel" href="tel:0012345678">00-1234-5678</a></p>
-          </div>
-
-          <div class="contact__block">
-            <h3>メール</h3>
-            <p><a href="mailto:info@u1-garage.jp">info@u1-garage.jp</a></p>
-          </div>
-
-          <div id="line" class="contact__block">
-            <h3>LINE</h3>
-            <div class="qr-box">
-              <!-- 後で img/line-qr.png を置いてください（正方形） -->
-              <img class="qr" src="img/line-qr.png" alt="LINE 友だち追加用QRコード（差し替え可）" loading="lazy">
+          <!-- 電話・メールは空カードにせず、今回はQRのみを綺麗に出す -->
+          <div class="contact__block" style="grid-column: 1 / -1;">
+            <h3>QRコード</h3>
+            <div class="qr-wrap">
+              <!-- 後で img/line-qr.png を配置してください（正方形推奨） -->
+              <img class="qr" src="img/line-qr.png" alt="LINE QRコード（差し替え可）" loading="lazy">
             </div>
-            <!-- 友だち追加ボタン等を併設したければ下を有効化
-            <p style="margin-top:10px;"><a class="btn" href="https://line.me/R/ti/p/@your-id" target="_blank" rel="noopener">友だち追加（リンク）</a></p>
-            -->
           </div>
         </div>
       </div>
@@ -136,8 +125,8 @@
           <li><a href="autoshow.html">オートショー活動</a></li>
           <li><a href="features.html">U1の特徴</a></li>
           <li><a href="maintenance.html">修理・メンテナンス</a></li>
-          <li><a href="contact.html" aria-current="page">お問合せ</a></li>
-          <li><a href="line.html">LINE</a></li>
+          <li><a href="contact.html">お問合せ</a></li>
+          <li><a href="line.html" aria-current="page">LINE</a></li>
         </ul>
       </nav>
     </div>
@@ -145,30 +134,30 @@
     <div class="copy">© U1-GARAGE. All Rights Reserved.</div>
   </footer>
 
-   <script>
-      // モバイルナビ開閉
-      const btn = document.querySelector('.nav-toggle');
-      const nav = document.getElementById('globalnav');
-      if (btn && nav) {
-        btn.addEventListener('click', () => {
-          const open = nav.classList.toggle('is-open');
-          btn.setAttribute('aria-expanded', String(open));
-        });
-      }
-      document.querySelectorAll('.nav__list a').forEach(a=>{
-        a.addEventListener('click', () => {
-          nav?.classList.remove('is-open');
-          btn?.setAttribute('aria-expanded','false');
-        });
+  <script>
+    // モバイルナビ開閉
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('globalnav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(open));
       });
-      // スクロール時のヘッダー影
-      const header = document.querySelector('.header');
-      const onScroll = () => {
-        if (window.scrollY > 8) header.classList.add('is-scrolled');
-        else header.classList.remove('is-scrolled');
-      };
-      window.addEventListener('scroll', onScroll);
-      onScroll();
-    </script>
-  </body>
-  </html>
+    }
+    document.querySelectorAll('.nav__list a').forEach(a=>{
+      a.addEventListener('click', () => {
+        nav?.classList.remove('is-open');
+        btn?.setAttribute('aria-expanded','false');
+      });
+    });
+    // スクロール時のヘッダー影
+    const header = document.querySelector('.header');
+    const onScroll = () => {
+      if (window.scrollY > 8) header.classList.add('is-scrolled');
+      else header.classList.remove('is-scrolled');
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+</body>
+</html>
