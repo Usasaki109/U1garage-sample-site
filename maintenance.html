@@ -4,20 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <base href="https://usasaki109.github.io/U1garage-sample-site/">
-  <title>U1の特徴 | U1-GARAGE</title>
-  <meta name="description" content="U1-GARAGEの強み・特徴をご紹介します。">
+  <title>修理・メンテナンス | U1-GARAGE</title>
+  <meta name="description" content="U1-GARAGEの修理・メンテナンスメニューのご案内。点検・一般整備・鈑金塗装・アフターサポートまで対応します。">
   <meta name="theme-color" content="#0b1a3c">
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-  <!-- ページ専用スタイル（サンプルと同じ帯＋レイアウト） -->
+  <!-- ページ専用スタイル（サンプルの濃紺帯＋2カラムレイアウト） -->
   <style>
     .page-hero{
       color:#fff;
       background:
         linear-gradient(180deg, rgba(11,26,60,.86), rgba(11,26,60,.55)),
-        url("img/page-hero.jpg") center/cover no-repeat,
+        url("img/page-hero-maintenance.jpg") center/cover no-repeat,
         radial-gradient(circle at 20% 0%, #172554, #0b1a3c);
     }
     .page-hero__in{ padding:48px 0; }
@@ -34,12 +34,13 @@
     .band__body{ padding:16px; display:grid; grid-template-columns:1fr 360px; gap:24px; align-items:start; }
     .band__body--single{ grid-template-columns:1fr; }
     .band__img img{ width:100%; height:auto; border-radius:12px; }
-    .badge-box{ display:flex; justify-content:center; align-items:center; padding:8px; }
-    .badge-box img{ max-width:320px; height:auto; border-radius:10px; }
-    .inline-links{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
-    .inline-links a{ color:#0b67c2; text-decoration:underline; }
-    .em{ color:#c62828; font-weight:700; }
-    @media (max-width: 960px){ .band__body{ grid-template-columns:1fr; } }
+
+    .banner{ margin-top:24px; }
+    .banner img{ width:100%; height:auto; display:block; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.12); }
+
+    @media (max-width: 960px){
+      .band__body{ grid-template-columns:1fr; }
+    }
   </style>
 </head>
 <body id="top">
@@ -69,8 +70,8 @@
         <ul class="nav__list">
           <li><a href="index.html#about">会社概要</a></li>
           <li><a href="index.html#autoshow">オートショー活動</a></li>
-          <li><a href="features.html" aria-current="page">U1の特徴</a></li>
-          <li><a href="maintenance.html">修理・メンテナンス</a></li>
+          <li><a href="features.html">U1の特徴</a></li>
+          <li><a href="maintenance.html" aria-current="page">修理・メンテナンス</a></li>
           <li><a href="index.html#contact">お問合せ</a></li>
           <li class="line"><a href="index.html#line">LINE</a></li>
         </ul>
@@ -79,78 +80,79 @@
   </header>
 
   <!-- Page Hero -->
-  <section class="page-hero" role="img" aria-label="U1の特徴">
+  <section class="page-hero" role="img" aria-label="修理・メンテナンス">
     <div class="container page-hero__in">
-      <h1>U1の特徴</h1>
-      <p class="sub">Characteristics of “U1”</p>
+      <h1>修理・メンテナンス</h1>
+      <p class="sub">Maintenance</p>
     </div>
   </section>
 
   <main id="main">
     <nav class="container breadcrumb" aria-label="パンくず">
-      <a href="index.html">ホーム</a><span class="sep">›</span><span>U1の特徴</span>
+      <a href="index.html">ホーム</a><span class="sep">›</span><span>修理・メンテナンス</span>
     </nav>
 
     <section class="section">
       <div class="container feature-wrap">
 
-        <!-- Band 1 -->
+        <!-- 1. アフターサポート（テキストのみ） -->
         <section class="band">
-          <div class="band__title">車が大好きなオーナーが始めた工場です</div>
+          <div class="band__title">アフターサポート</div>
           <div class="band__body band__body--single">
-            <p><span class="em">当店は、幅広い車種の在庫と整備体制を備えています。</span><br>
-              もちろん、在庫以外の車両もお取り寄せの上で一緒に探すこともできます。新車もお任せください！</p>
-            <p>（このテキストは後で差し替えOK）</p>
+            <p>納車後のアフターサービスも大切に運営しています。定期点検のご案内、消耗品の交換、各種調整・修理まで、安心してお任せください。</p>
+            <p>車検・点検・一般整備・電装・足回り・各種アップグレード、チューニングサポート、レストアなどもご相談いただけます。</p>
           </div>
         </section>
 
-        <!-- Band 2 -->
+        <!-- 2. 鈑金塗装（右側に画像） -->
         <section class="band">
-          <div class="band__title">お車のことならお任せください</div>
+          <div class="band__title">鈑金塗装</div>
           <div class="band__body">
             <div class="band__text">
-              <p>U1-GARAGEなら、<span class="em">質の高い整備を適正価格でご提供</span>できます。<br>
-                車検・点検・一般整備・修理・鈑金・メンテナンスの流れもわかりやすい説明でご案内します。</p>
-              <ul class="inline-links">
-                <li><a href="index.html#contact">自社ローンについてはこちら</a></li>
-                <li><a href="index.html#contact">査定はこちら</a></li>
-                <li><a href="index.html#maintenance">修理・メンテナンスはこちら</a></li>
-              </ul>
+              <p>小さなキズから保険修理まで、経験豊富な職人が対応します。純正色はもちろん、エアロパーツのフィッティングやカスタム塗装もご相談ください。</p>
+              <p>構造に合わせた鈑金工程で歪みを最小限に抑え、塗装は専用ブースで高い仕上がりを実現します。</p>
             </div>
             <div class="band__img">
-              <img src="img/feature-02.jpg" alt="工場外観または在庫車の様子（差し替え可）" loading="lazy">
+              <!-- 後で差し替え：工場作業の写真など -->
+              <img src="img/maintenance-bodywork.jpg" alt="鈑金塗装の作業風景（差し替え可）" loading="lazy">
             </div>
           </div>
         </section>
 
-        <!-- Band 3 -->
+        <!-- 3. メンテナンス（右側に画像） -->
         <section class="band">
-          <div class="band__title">最新の設備でお客様をサポート</div>
+          <div class="band__title">メンテナンス</div>
           <div class="band__body">
             <div class="band__text">
-              <p>快適なカーライフを継続するには<span class="em">信頼できるお店選びが大切</span>です。<br>
-                診断機・整備リフト・測定機器など、必要な設備を揃えています。</p>
-              <p>（文章は自由に変更してください）</p>
+              <p>快適なカーライフを継続するには計画的なメンテナンスが大切です。診断機を用いたチェックのほか、各種オイルやフィルタ、ブレーキ、サスペンション、電装系など幅広く対応します。</p>
+              <p>事前見積でご説明のうえ作業しますので、はじめての方も安心してご依頼ください。</p>
             </div>
             <div class="band__img">
-              <img src="img/feature-03.jpg" alt="整備風景（差し替え可）" loading="lazy">
+              <!-- 後で差し替え：整備の写真など -->
+              <img src="img/maintenance-service.jpg" alt="整備作業の様子（差し替え可）" loading="lazy">
             </div>
           </div>
         </section>
 
-        <!-- Band 4 -->
+        <!-- 4. 全国お届け（右側に画像・地図イメージ） -->
         <section class="band">
-          <div class="band__title">買取・下取り</div>
+          <div class="band__title">全国お届け</div>
           <div class="band__body">
             <div class="band__text">
-              <p><span class="em">買取価格には本当に自信あり！</span>最後の最後にご連絡ください。<br>
-                状態・年式・相場を丁寧に評価し、納得の査定をご提案します。</p>
+              <p>遠方のお客様にも対応します。陸送業者または自社手配で、ご指定の日時・場所へお届け可能。必要書類やお手続きも丁寧にご案内します。</p>
             </div>
-            <div class="badge-box">
-              <img src="img/feature-buy-banner.jpg" alt="買取強化中バナー（差し替え可）" loading="lazy">
+            <div class="band__img">
+              <!-- 後で差し替え：全国地図・配送イメージ -->
+              <img src="img/maintenance-delivery.jpg" alt="全国納車イメージ（差し替え可）" loading="lazy">
             </div>
           </div>
         </section>
+
+        <!-- 下部バナー（横長） -->
+        <div class="banner">
+          <!-- 後で差し替え：赤系の訴求バナー想定 -->
+          <img src="img/maintenance-cta-banner.jpg" alt="修理・メンテナンスのご相談バナー（差し替え可）" loading="lazy">
+        </div>
 
       </div>
     </section>
@@ -171,8 +173,8 @@
         <ul>
           <li><a href="index.html#about">会社概要</a></li>
           <li><a href="index.html#autoshow">オートショー活動</a></li>
-          <li><a href="features.html" aria-current="page">U1の特徴</a></li>
-          <li><a href="maintenance.html">修理・メンテナンス</a></li>
+          <li><a href="features.html">U1の特徴</a></li>
+          <li><a href="maintenance.html" aria-current="page">修理・メンテナンス</a></li>
           <li><a href="index.html#contact">お問合せ</a></li>
           <li><a href="index.html#line">LINE</a></li>
         </ul>
