@@ -229,3 +229,117 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
 @media (max-width: 720px){
   .features{ grid-template-columns: 1fr; }
 }
+
+/* =========================================
+   U1-GARAGE : Mobile Tweaks (patch)
+   目的：スマホ時の余白/可読性/はみ出し/ナビ開閉を最適化
+========================================= */
+
+/* 安全策：メディア外でもはみ出しを防ぐ共通 */
+img, iframe, video { max-width: 100%; height: auto; }
+.map iframe { width: 100%; min-height: 320px; border: 0; }
+.breadcrumb { word-break: keep-all; }
+
+/* --- 720px以下でまとめて調整 ----------------- */
+@media (max-width: 720px){
+
+  /* 0) 文字と余白の基調（読みやすく） */
+  :root{
+    --space-s: 10px;
+    --space-m: 14px;
+    --space-l: 20px;
+    --shadow-mobile: 0 8px 18px rgba(0,0,0,.08);
+  }
+  body{ line-height: 1.75; font-size: 15.5px; }
+
+  /* 1) トップバー：案内文は隠し、TELだけ残す */
+  .topbar__note{ display: none; }
+  .topbar__tel{ font-size: 14px; }
+
+  /* 2) ヘッダー：ハンバーガー/ロゴのタップ領域拡大 */
+  .nav-toggle{ width: 48px; height: 48px; }
+  .brand{ padding: 6px 0; }
+
+  /* 3) グローバルナビ：全画面オーバーレイ風に */
+  .header .nav{
+    position: fixed;
+    inset: 64px 0 0 0;          /* ヘッダー下から全画面 */
+    background: rgba(11,26,60,.98);
+    transform: translateY(-2%);
+    opacity: 0;
+    pointer-events: none;
+    transition: .18s ease;
+  }
+  .header .nav.is-open{
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .header .nav__list{
+    display: flex; flex-direction: column;
+    gap: 2px; padding: 10px var(--space-l) var(--space-l);
+  }
+  .header .nav__list a{
+    display: block; padding: 14px 10px;
+    font-size: 16px; color: #fff;
+    border-radius: 10px;
+  }
+  .header .nav__list a:hover{ background: rgba(255,255,255,.08); }
+
+  /* 4) ヒーロー：余白圧縮＆ボタン縦積み */
+  .hero__in{ padding: 28px 0 24px; }
+  .hero h1{ font-size: clamp(26px, 6vw, 34px); line-height: 1.25; }
+  .hero p{ margin-top: 10px; font-size: 15px; }
+  .cta{ display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .cta .btn{ width: 100%; padding: 14px 10px; }
+
+  /* 5) パンくず：見出し下の余白を確保 */
+  .breadcrumb{ margin: 12px auto 14px; font-size: 12.5px; }
+
+  /* 6) “U1の特徴”カード（3枚） */
+  .features{ 
+    grid-template-columns: 1fr; 
+    gap: 12px; 
+    padding: 0; 
+    margin: 0; 
+  }
+  .feature{
+    padding: 14px; 
+    box-shadow: var(--shadow-mobile);
+  }
+  .feature__icon{ font-size: 24px; }
+
+  /* 7) 会社概要テーブル：縦積みレイアウトに */
+  .profile__table{ width: 100%; }
+  .profile__table tr{ display: block; padding: 10px 0; border-bottom: 1px solid #eef2f7; }
+  .profile__table th{
+    display: block; width: auto; padding: 0 0 4px;
+    color: #4b5563; font-weight: 600; background: transparent;
+  }
+  .profile__table td{
+    display: block; width: auto; padding: 0;
+  }
+  .profile__image{ margin-top: var(--space-m); }
+
+  /* 8) カード汎用（オートショー等） */
+  .cards{ display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .card{ box-shadow: var(--shadow-mobile); border-radius: 14px; overflow: hidden; }
+  .card__body{ padding: 14px; }
+
+  /* 9) フッターの読みやすさ */
+  .footer__in{ gap: 18px; }
+  .footer__nav ul{ display: grid; grid-template-columns: 1fr; gap: 6px; }
+  .footer__brand p{ margin: 6px 0; }
+  .copy{ font-size: 12px; }
+
+  /* 10) “ページトップ”ボタン：指で押しやすく */
+  .pagetop a{ display: inline-block; padding: 12px 16px; font-size: 13px; }
+
+  /* 11) 影をやや軽量化（モバイルで重く見えないよう） */
+  .profile, .contact__block, .band, .banner img{
+    box-shadow: var(--shadow-mobile);
+  }
+
+  /* 12) 横スクロールの芽を摘む（保険） */
+  body, html{ overflow-x: hidden; }
+}
