@@ -335,31 +335,58 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
   mix-blend-mode: normal;   /* ブレンドで薄くならないように固定 */
 }
 
-/* ===== 画像をカードの右端に揃える（features / maintenance 限定） ===== */
+/* ================================
+   features / maintenance の画像を
+   カード内の右端にそろえるだけのパッチ
+   （サイズはいじらない）
+================================ */
 
-/* 画像（または figure）がカード直下に置かれている想定 */
-.page-features  .band > img,
-.page-maintenance .band > img,
-.page-features  .band > figure,
-.page-maintenance .band > figure{
-  display: block;           /* 行内→ブロック化 */
-  margin-left: auto;        /* 左マージンを自動で広げて右寄せ */
-  margin-right: 0;
-  float: none !important;   /* 過去の float 指定があれば打ち消す */
-  text-align: right;        /* figure の既定整列の保険 */
+/* PC幅だけ右寄せ。モバイルは従来の縦並び */
+@media (min-width: 961px){
+
+  /* 直置き <img> / <figure> / よくある .band__media の3パターンを網羅 */
+  .page-features  .band > img,
+  .page-maintenance .band > img,
+  .page-features  .band > figure,
+  .page-maintenance .band > figure,
+  .page-features  .band .band__media,
+  .page-maintenance .band .band__media{
+    float: right !important;     /* ← 右端へ寄せる本体 */
+    margin: 0 0 0 16px;          /* 文章との間にだけ余白 */
+    text-align: right;           /* figure/.band__media の保険 */
+  }
+
+  /* figure 内の画像が右端にぴったり付くように */
+  .page-features  .band > figure > img,
+  .page-maintenance .band > figure > img{
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* float でコンテナ高さが潰れないように clearfix */
+  .page-features  .band::after,
+  .page-maintenance .band::after{
+    content:"";
+    display:block;
+    clear: both;
+  }
+
+  /* もし figure にデフォルト margin があれば打ち消す */
+  .page-features  .band > figure,
+  .page-maintenance .band > figure{ margin: 0; }
 }
 
-/* figure 内の <img> もはみ出さないように */
-.page-features  .band > figure > img,
-.page-maintenance .band > figure > img{
-  display: inline-block;
-  max-width: 100%;
-  height: auto;
+/* モバイルでは float を無効化（従来の縦レイアウト） */
+@media (max-width: 960px){
+  .page-features  .band > img,
+  .page-maintenance .band > img,
+  .page-features  .band > figure,
+  .page-maintenance .band > figure,
+  .page-features  .band .band__media,
+  .page-maintenance .band .band__media{
+    float: none !important;
+    margin: 12px 0 0;
+  }
 }
 
-/* 画像が右端から数px離れて見える場合のガター統一（任意） */
-.page-features  .band,
-.page-maintenance .band{
-  padding-right: 16px;      /* 他セクションと同じガターに揃えるなら */
-  box-sizing: border-box;
-}
