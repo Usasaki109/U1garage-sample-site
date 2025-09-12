@@ -229,3 +229,50 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
 @media (max-width: 720px){
   .features{ grid-template-columns: 1fr; }
 }
+
+/* ヒーロー右にエンブレムを重ねる */
+.page-hero{ position: relative; overflow: hidden; }
+.page-hero::after{
+  content: "";
+  position: absolute;
+  right: max(24px, 6vw);
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(160px, 28vw, 360px);    /* 画面に応じて自動で縮尺 */
+  aspect-ratio: 1 / 1;
+  background: url("img/hero-emblem.png") center / contain no-repeat;
+  opacity: .18;                        /* 主張しすぎない透過 */
+  pointer-events: none;
+}
+/* かなり狭い端末では少し小さく／消したい場合はここで調整 */
+@media (max-width: 480px){
+  .page-hero::after{ width: 42vw; opacity: .16; }
+  /* 完全に消すなら次の1行だけ有効化 */
+  /* .hero::after{ display:none; } */
+}
+
+
+/* 会社概要：左右の高さ揃え */
+@media (min-width: 721px){
+  .profile{            /* 左右2カラムの親 */
+    align-items: stretch;              /* 子を同じ高さに伸ばす */
+  }
+  .profile__image{                     /* 右側の写真コンテナ */
+    height: 100%;
+    margin: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .profile__image > img{
+    width: 100%;
+    height: 100%;                      /* ← ここがポイント */
+    object-fit: cover;                 /* はみ出しは中央トリミング */
+    object-position: center;
+    display: block;
+  }
+  /* 左のカードが「auto高さ」だと均等にならないケースの保険 */
+  .profile__table{
+    height: 100%;
+  }
+}
