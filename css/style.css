@@ -305,3 +305,32 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
   mix-blend-mode: normal;              /* ブレンドで薄くならないように固定 */
   pointer-events: none;
 }
+
+/* ===== Header always on top ===== */
+.topbar,
+.header{
+  position: relative;     /* static の場合でもスタック文脈を作る */
+  z-index: 5000;          /* 充分に大きな値で最前面に固定 */
+}
+
+/* グローバルナビ（PC/モバイルどちらでも上に来るように） */
+#globalnav,
+.header .nav,
+.header .nav__list,
+.header .nav-toggle{
+  position: relative;
+  z-index: 5100;
+}
+
+/* モバイルで開くパネル型ナビがある場合の保険 */
+#globalnav.is-open{
+  z-index: 5200;          /* 開いたときも確実に最前面 */
+}
+
+/* エンブレムは必ずヘッダーより下（見た目の安全策） */
+.hero .hero-emblem,
+.page-hero .hero-emblem{
+  z-index: 400 !important; /* ヘッダー(5000)より十分小さく */
+  pointer-events: none;     /* クリックは下の要素（ヘッダー等）に通す */
+  mix-blend-mode: normal;   /* ブレンドで薄くならないように固定 */
+}
