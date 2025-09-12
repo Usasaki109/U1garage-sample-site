@@ -92,8 +92,16 @@
         <!-- ここに任意の説明テキストを入れてください -->
         <p class="muted" style="margin:-4px 0 18px;">サンプルテキスト：お問合せは下記のいずれかの方法で承ります。営業時間外はメール・LINEをご利用ください。</p>
 
-        <!-- トップと同じ3カード -->
+        <!-- 連絡手段カード群 -->
         <div class="contact">
+
+          <!-- 代車空き状況（Java組み込み） -->
+          <div class="contact__block" aria-live="polite">
+            <h3>代車空き状況</h3>
+            <p id="loaner-status"><strong>残り <span data-loaner-count>—</span> 台</strong></p>
+            <p class="muted" style="margin-top:6px;">※本日の朝時点の目安です。正確な状況はお電話でご確認ください。</p>
+          </div>
+
           <div class="contact__block">
             <h3>お電話</h3>
             <p><a class="tel" href="tel:0012345678">00-1234-5678</a></p>
@@ -171,4 +179,4 @@
       onScroll();
     </script>
   </body>
-  </html>
+</html>

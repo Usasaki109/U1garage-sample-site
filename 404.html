@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- あなたの公開URLを基準に相対リンクを解決 -->
+  <base href="https://usasaki109.github.io/U1garage-sample-site/">
+  <title>ページが見つかりません | U1-GARAGE</title>
+  <meta name="description" content="指定されたページは見つかりませんでした。トップへお戻りください。">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- JS無効時の保険（5秒後にトップへ） -->
+  <meta http-equiv="refresh" content="5; url=index.html">
+  <style>
+    /* 404専用の軽い整形 */
+    .page-hero{
+      color:#fff;
+      background:
+        linear-gradient(180deg, rgba(11,26,60,.86), rgba(11,26,60,.55)),
+        url("img/page-hero-404.jpg") center/cover no-repeat,
+        radial-gradient(circle at 20% 0%, #172554, #0b1a3c);
+    }
+    .page-hero__in{ padding:48px 0; }
+    .page-hero h1{ margin:0 0 6px; font-size:36px; font-weight:800; letter-spacing:.02em; }
+    .lead{ color:#374151; }
+    .notfound-card{ background:#fff; border-radius:14px; box-shadow:0 8px 24px rgba(0,0,0,.08); padding:18px; }
+    .btn-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .btn-link{ display:inline-block; padding:10px 14px; border-radius:10px; border:1px solid #e5e7eb; text-decoration:none; }
+    .btn-primary{ background:#0ea5e9; color:#fff; border-color:#0ea5e9; }
+    code.path{ background:#f3f4f6; padding:2px 6px; border-radius:6px; }
+  </style>
+</head>
+<body id="top">
+  <a class="skip" href="#main">本文へスキップ</a>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container topbar__in">
+      <div class="topbar__note">中古車買取/整備のご相談はU1-GARAGEへ。まずはお電話ください。</div>
+      <div class="topbar__tel">TEL <a href="tel:0012345678">00-1234-5678</a></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__in">
+      <a class="brand" href="index.html" aria-label="U1-GARAGE ホーム">
+        <span class="brand__main">U1-GARAGE</span>
+        <span class="brand__sub">Automotive Service</span>
+      </a>
+
+      <button class="nav-toggle" aria-controls="globalnav" aria-expanded="false" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="globalnav" class="nav" aria-label="グローバルナビ">
+        <ul class="nav__list">
+          <li><a href="index.html#about">会社概要</a></li>
+          <li><a href="autoshow.html">オートショー活動</a></li>
+          <li><a href="features.html">U1の特徴</a></li>
+          <li><a href="maintenance.html">修理・メンテナンス</a></li>
+          <li><a href="contact.html">お問合せ</a></li>
+          <li class="line"><a href="line.html">LINE</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="page-hero" role="img" aria-label="ページが見つかりません">
+    <div class="container page-hero__in">
+      <h1>ページが見つかりません（404）</h1>
+      <p class="sub">The page you’re looking for can’t be found.</p>
+    </div>
+  </section>
+
+  <main id="main">
+    <nav class="container breadcrumb" aria-label="パンくず">
+      <a href="index.html">ホーム</a><span class="sep">›</span><span>404</span>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <div class="notfound-card">
+          <p class="lead">
+            指定されたURLが存在しないか、移動/削除された可能性があります。<br>
+            アクセスしようとしたパス：<code class="path" id="badpath"></code><br>
+            <strong>5秒後にトップへ自動で戻ります。</strong> 下のリンクからも移動できます。
+          </p>
+          <div class="btn-row">
+            <a class="btn-link btn-primary" href="index.html">トップへ戻る</a>
+            <a class="btn-link" href="features.html">U1の特徴</a>
+            <a class="btn-link" href="maintenance.html">修理・メンテナンス</a>
+            <a class="btn-link" href="autoshow.html">オートショー活動</a>
+            <a class="btn-link" href="contact.html">お問合せ</a>
+            <a class="btn-link" href="line.html">LINE</a>
+            <a class="btn-link" href="javascript:history.back()">ひとつ前のページへ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__in">
+      <div class="footer__brand">
+        <div class="brand brand--footer">
+          <span class="brand__main">U1-GARAGE</span>
+          <span class="brand__sub">Automotive Service</span>
+        </div>
+        <p>〒000-0000 千葉県◯◯市◯◯◯0-0-0（ダミー）</p>
+        <p>TEL 00-1234-5678 / FAX 00-0000-0000</p>
+      </div>
+      <nav class="footer__nav" aria-label="フッターナビ">
+        <ul>
+          <li><a href="index.html#about">会社概要</a></li>
+          <li><a href="autoshow.html">オートショー活動</a></li>
+          <li><a href="features.html">U1の特徴</a></li>
+          <li><a href="maintenance.html">修理・メンテナンス</a></li>
+          <li><a href="contact.html">お問合せ</a></li>
+          <li><a href="line.html">LINE</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="pagetop"><a href="#top">▲ PAGE TOP</a></div>
+    <div class="copy">© U1-GARAGE. All Rights Reserved.</div>
+  </footer>
+
+  <script>
+    // モバイルナビ開閉（既存と同じ）
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('globalnav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    }
+    document.querySelectorAll('.nav__list a').forEach(a=>{
+      a.addEventListener('click', () => {
+        nav?.classList.remove('is-open');
+        btn?.setAttribute('aria-expanded','false');
+      });
+    });
+
+    // 表示している404のパスを出す
+    try {
+      const bad = document.getElementById('badpath');
+      bad.textContent = decodeURI(location.pathname);
+    } catch (e) {}
+
+    // JS有効時は3秒でトップへ
+    setTimeout(()=>{ location.replace('index.html'); }, 3000);
+
+    // スクロール時のヘッダー影（既存と同じ）
+    const header = document.querySelector('.header');
+    const onScroll = () => {
+      if (window.scrollY > 8) header.classList.add('is-scrolled');
+      else header.classList.remove('is-scrolled');
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+</body>
+</html>
