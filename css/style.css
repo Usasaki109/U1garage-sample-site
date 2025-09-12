@@ -335,37 +335,28 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
   mix-blend-mode: normal;   /* ブレンドで薄くならないように固定 */
 }
 
-/* ===========================
-   features / maintenance
-   画像のあるカードだけ右端に揃える
-   （サイズは変更しない）
-=========================== */
-@media (min-width: 961px){
-  /* 画像(または figure)を含む .band を横並びにして右列は自動幅 */
-  .page-features .band:has(> img),
-  .page-features .band:has(> figure),
-  .page-maintenance .band:has(> img),
-  .page-maintenance .band:has(> figure){
-    display: grid;
-    grid-template-columns: 1fr max-content; /* 左=本文 右=画像(自動幅) */
-    align-items: center;
-    gap: 16px;                               /* 本文と写真の間だけ余白 */
-  }
+/* ===== band の画像を“右端ピタッ”にする（features / maintenance 共通） ===== */
 
-  /* 右端へピタッ（カードのパディング内に収める）*/
-  .page-features .band:has(> img)    > img,
-  .page-features .band:has(> figure) > figure,
-  .page-maintenance .band:has(> img)    > img,
-  .page-maintenance .band:has(> figure) > figure{
-    justify-self: end;   /* ← 右寄せ */
-    margin: 0;           /* 既定の margin を打ち消す */
-  }
-
-  /* figure 内の img がはみ出さない保険 */
-  .page-features .band:has(> figure) > figure > img,
-  .page-maintenance .band:has(> figure) > figure > img{
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
+/* 右カラムは画像の実サイズに合わせた自動幅にする */
+.band__body{
+  grid-template-columns: 1fr max-content !important;
 }
+
+/* 右カラム（.band__img）自体を右端へ寄せる */
+.band__img{
+  justify-self: end;               /* ← グリッド項目を右端へ */
+  display: flex;                   /* 中身の画像も右寄せ */
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* 画像はそのままのサイズ（inline の 40% 指定があってもOK） */
+.band__img img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* figure で包んでいるパターンの保険（あれば） */
+.band__body > figure{ justify-self: end; margin: 0; }
+.band__body > figure > img{ display:block; max-width:100%; height:auto; }
