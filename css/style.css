@@ -335,28 +335,34 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
   mix-blend-mode: normal;   /* ブレンドで薄くならないように固定 */
 }
 
-/* ===== band の画像を“右端ピタッ”にする（features / maintenance 共通） ===== */
+/* ===== band の画像を“右端ピタッ”にして、サイズはCSSで管理 ===== */
+:root{ --band-img-max: 280px; }    /* 画像の上限：好みで 240〜320px などに */
 
-/* 右カラムは画像の実サイズに合わせた自動幅にする */
-.band__body{
-  grid-template-columns: 1fr max-content !important;
+.page-features .band__body,
+.page-maintenance .band__body{
+  display: grid;
+  grid-template-columns: 1fr max-content; /* 左=本文 / 右=画像の実幅 */
+  gap: 24px;
+  align-items: center;
 }
 
-/* 右カラム（.band__img）自体を右端へ寄せる */
-.band__img{
-  justify-self: end;               /* ← グリッド項目を右端へ */
-  display: flex;                   /* 中身の画像も右寄せ */
+.page-features .band__img,
+.page-maintenance .band__img,
+.page-features .badge-box,
+.page-maintenance .badge-box{
+  justify-self: end;               /* 右端にピタッ */
+  display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-/* 画像はそのままのサイズ（inline の 40% 指定があってもOK） */
-.band__img img{
-  max-width: 100%;
+.page-features .band__img img,
+.page-maintenance .band__img img,
+.page-features .badge-box img,
+.page-maintenance .badge-box img{
+  width: auto;                     /* 画像は実寸ベース */
+  max-width: var(--band-img-max);  /* ここで「ほどほどサイズ」を統一 */
   height: auto;
   display: block;
 }
 
-/* figure で包んでいるパターンの保険（あれば） */
-.band__body > figure{ justify-self: end; margin: 0; }
-.band__body > figure > img{ display:block; max-width:100%; height:auto; }
