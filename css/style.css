@@ -334,3 +334,32 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
   pointer-events: none;     /* クリックは下の要素（ヘッダー等）に通す */
   mix-blend-mode: normal;   /* ブレンドで薄くならないように固定 */
 }
+
+/* ===== 画像をカードの右端に揃える（features / maintenance 限定） ===== */
+
+/* 画像（または figure）がカード直下に置かれている想定 */
+.page-features  .band > img,
+.page-maintenance .band > img,
+.page-features  .band > figure,
+.page-maintenance .band > figure{
+  display: block;           /* 行内→ブロック化 */
+  margin-left: auto;        /* 左マージンを自動で広げて右寄せ */
+  margin-right: 0;
+  float: none !important;   /* 過去の float 指定があれば打ち消す */
+  text-align: right;        /* figure の既定整列の保険 */
+}
+
+/* figure 内の <img> もはみ出さないように */
+.page-features  .band > figure > img,
+.page-maintenance .band > figure > img{
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 画像が右端から数px離れて見える場合のガター統一（任意） */
+.page-features  .band,
+.page-maintenance .band{
+  padding-right: 16px;      /* 他セクションと同じガターに揃えるなら */
+  box-sizing: border-box;
+}
