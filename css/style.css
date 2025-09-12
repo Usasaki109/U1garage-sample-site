@@ -259,35 +259,7 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
 
 
 
-/* === エンブレム表示 === */
-.hero, .page-hero{
-  position: relative;
-  z-index: 0;            /* レイヤの基準を作る */
-  overflow: hidden;
-}
-
-/* テキストは常にエンブレムより前面へ */
-.hero > *, .page-hero > *{
-  position: relative;
-  z-index: 2;
-}
-
-/* エンブレム本体（右側に重ねる） */
-.hero, .page-hero{ position: relative; z-index:0; overflow:hidden; }
-.hero > *, .page-hero > *{ position:relative; z-index:2; }
-
-.hero::after, .page-hero::after{
-  content:"";
-  position:absolute; z-index:1;
-  right:max(24px,6vw); top:50%; transform:translateY(-50%);
-  width:clamp(160px,28vw,360px); aspect-ratio:1/1;
-  background:url("../img/hero-emblem.png?v=2") center/contain no-repeat;
-  opacity:.18; pointer-events:none;
-}
-@media (max-width:480px){ .hero::after,.page-hero::after{ width:42vw; opacity:.16; } }
-
-
-/* === Breadcrumb alignment fix === */
+/* === ぱんくず部分のズレ直し === */
 /* container と breadcrumb を同時に持つ要素を確実に中央揃え＋同ガターに */
 .container.breadcrumb{
   max-width: var(--container);
@@ -310,3 +282,64 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
 
 
 
+/* =============================== */
+/*  Hero Emblem v2 (all pages)     */
+/*  css/style.css の末尾に追加     */
+/* =============================== */
+
+/* 調整しやすい変数 */
+:root{
+  --emblem-img: url("../img/hero-emblem.png?v=4"); /* 画像パス（CSSから見て../img） */
+  --emblem-opacity: .26;   /* 濃さ。薄いと感じたら .30〜.35 へ */
+  --emblem-max: 360px;     /* 最大サイズ（PC上限） */
+  --emblem-min: 160px;     /* 最小サイズ（極小画面の下限） */
+  --emblem-h: 0.72;        /* ヒーロー高さに対する比率（72%） */
+}
+
+/* ヒーロー領域（トップ: .hero / 下層: .page-hero） */
+.hero, .page-hero{
+  position: relative;
+  z-index: 0;
+  overflow: hidden; /* はみ出し保険 */
+}
+
+/* ヒーロー内テキストは前面へ */
+.hero > *, .page-hero > *{
+  position: relative;
+  z-index: 3;
+}
+
+/* エンブレム本体（右側に重ねる） */
+.hero::after, .page-hero::after{
+  content:"";
+  position:absolute;
+  z-index: 2; /* 背景や ::before の上、テキストの下 */
+
+  /* 右端：本文コンテナの右ライン + ガター16px に揃える */
+  right: max(16px, calc((100vw - var(--container)) / 2 + 16px));
+
+  /* サイズ：ヒーロー高さの比率で収めつつ、上限/下限を設定 */
+  height: clamp(var(--emblem-min), calc(var(--emblem-h) * 100%), var(--emblem-max));
+  aspect-ratio: 1 / 1;       /* 正方形前提（1080×1080 OK） */
+
+  /* 画像はトリミングしない（全体が見える） */
+  background-image: var(--emblem-img);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: var(--emblem-opacity);
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.06));
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* かなり狭い端末では少し軽めに */
+@media (max-width: 480px){
+  :root{ --emblem-max: 280px; --emblem-opacity: .22; --emblem-h: 0.64; }
+}
+
+/* ページ単位で非表示にしたい場合（<body class="no-emblem"> を付与） */
+.no-emblem .hero::after,
+.no-emblem .page-hero::after{ display:none; }
