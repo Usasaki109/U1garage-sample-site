@@ -230,26 +230,28 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
   .features{ grid-template-columns: 1fr; }
 }
 
-/* ヒーロー右にエンブレムを重ねる */
-.page-hero{ position: relative; overflow: hidden; }
-.page-hero::after{
+/* === emblem on all hero sections === */
+.hero, .page-hero { position: relative; overflow: hidden; }
+.hero::after, .page-hero::after{
   content: "";
   position: absolute;
-  right: max(24px, 6vw);
+  right: max(24px, 6vw);            /* 画面に応じて右余白 */
   top: 50%;
   transform: translateY(-50%);
-  width: clamp(160px, 28vw, 360px);    /* 画面に応じて自動で縮尺 */
-  aspect-ratio: 1 / 1;
-  background: url("img/hero-emblem.png") center / contain no-repeat;
-  opacity: .18;                        /* 主張しすぎない透過 */
+  width: clamp(160px, 28vw, 360px); /* 自動スケール */
+  aspect-ratio: 1/1;
+  background: url("img/hero-emblem.png") center/contain no-repeat;
+  opacity: .18;                     /* 主張しすぎない */
   pointer-events: none;
 }
-/* かなり狭い端末では少し小さく／消したい場合はここで調整 */
+/* とても狭い端末では少しだけ小さく */
 @media (max-width: 480px){
-  .page-hero::after{ width: 42vw; opacity: .16; }
-  /* 完全に消すなら次の1行だけ有効化 */
-  /* .hero::after{ display:none; } */
+  .hero::after, .page-hero::after{ width: 42vw; opacity: .16; }
 }
+/* ページ単位で消したいとき（<body class="no-emblem">） */
+.no-emblem .hero::after,
+.no-emblem .page-hero::after{ display:none; }
+
 
 
 /* 会社概要：左右の高さ揃え */
@@ -276,3 +278,14 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
     height: 100%;
   }
 }
+
+/* === topbar alignment fix === */
+.topbar{ width:100%; overflow-x:hidden; }  /* 100vwのはみ出し対策 */
+.topbar .container, .topbar__in{
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 16px;            /* ヘッダー/フッターと同じガター */
+  box-sizing: border-box;
+}
+/* もし .topbar__in に幅指定がある場合の保険 */
+.topbar__in{ width: auto; }
