@@ -1,1 +1,112 @@
+name: Loaner daily update
 
+on:
+  schedule:
+    - cron: '0 0 * * *'   # JST 9:00
+  workflow_dispatch:      # 手動実行も可
+
+permissions:
+  contents: write         # これがあると push できる
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Run updater (fetch, validate, update files)
+        env:
+          LOANER_URL: ${{ secrets.LOANER_URL }}   # GistのRAW URL（さっき登録したSecret）
+        run: |
+          set -euo pipefail
+
+          cat > LoanerUpdater.java <<'EOF'
+import java.nio.file.*;
+import java.nio.charset.StandardCharsets;
+import java.time.*;
+import java.net.http.*;
+import java.net.URI;
+import java.util.regex.*;
+
+public class LoanerUpdater {
+  public static void main(String[] args) throws Exception {
+    String url = System.getenv("LOANER_URL");
+    if (url == null || url.isBlank()) {
+      System.err.println("LOANER_URL not set");
+      System.exit(1);
+    }
+
+    // 1) 取得
+    HttpClient client = HttpClient.newHttpClient();
+    HttpRequest req = HttpRequest.newBuilder(URI.create(url))
+      .GET()
+      .header("User-Agent","LoanerUpdater/1.0")
+      .build();
+    HttpResponse<String> res = client.send(req, HttpResponse.BodyHandlers.ofString());
+    if (res.statusCode() != 200) {
+      System.err.println("Fetch failed: HTTP " + res.statusCode());
+      System.exit(1);
+    }
+    String body = res.body().trim();
+    if (body.isEmpty()) {
+      System.err.println("Empty response");
+      System.exit(1);
+    }
+    char ch = body.charAt(0);
+    if (ch < '0' || ch > '9') {
+      System.err.println("Invalid first char: " + ch);
+      System.exit(1);
+    }
+    int n = ch - '0';
+
+    // 2) data/loaner.json を上書き
+    Path dataDir = Paths.get("data");
+    Files.createDirectories(dataDir);
+    String date = LocalDate.now(ZoneId.of("Asia/Tokyo")).toString();
+    String json = String.format("{\"count\":%d,\"date\":\"%s\"}%n", n, date);
+    Files.writeString(dataDir.resolve("loaner.json"), json, StandardCharsets.UTF_8);
+
+    // 3) contact.html の <span data-loaner-count> を差し替え
+    Path contact = Paths.get("contact.html");
+    if (Files.exists(contact)) {
+      String html = Files.readString(contact, StandardCharsets.UTF_8);
+      Pattern p = Pattern.compile("(<span[^>]*data-loaner-count[^>]*>)(.*?)(</span>)",
+                                  Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
+      String replaced = p.matcher(html).replaceAll("$1" + n + "$3");
+      if (!replaced.equals(html)) {
+        Files.writeString(contact, replaced, StandardCharsets.UTF_8);
+        System.out.println("Updated contact.html with count " + n);
+      } else {
+        System.out.println("contact.html already up-to-date.");
+      }
+    } else {
+      System.out.println("contact.html not found; skipped HTML update.");
+    }
+
+    System.out.println("Wrote data/loaner.json with count " + n + " and date " + date);
+  }
+}
+EOF
+
+          javac LoanerUpdater.java
+          java LoanerUpdater
+
+      - name: Commit & push if changed
+        run: |
+          set -e
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add -A
+            git commit -m "chore: daily loaner update"
+            git push
+          else
+            echo "No changes to commit."
+          fi
