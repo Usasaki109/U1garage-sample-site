@@ -273,28 +273,18 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
 }
 
 /* エンブレム本体（右側に重ねる） */
+.hero, .page-hero{ position: relative; z-index:0; overflow:hidden; }
+.hero > *, .page-hero > *{ position:relative; z-index:2; }
+
 .hero::after, .page-hero::after{
-  content: "";
-  position: absolute;
-  z-index: 1;            /* 背景より上・テキストより下 */
-  right: max(24px, 6vw);
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(160px, 28vw, 360px);
-  aspect-ratio: 1/1;
-  background: url("img/hero-emblem.png?v=1") center/contain no-repeat;
-  opacity: .18;
-  pointer-events: none;
+  content:"";
+  position:absolute; z-index:1;
+  right:max(24px,6vw); top:50%; transform:translateY(-50%);
+  width:clamp(160px,28vw,360px); aspect-ratio:1/1;
+  background:url("../img/hero-emblem.png?v=2") center/contain no-repeat;
+  opacity:.18; pointer-events:none;
 }
-
-/* すごく狭い端末では少しだけ小さく */
-@media (max-width: 480px){
-  .hero::after, .page-hero::after{ width: 42vw; opacity: .16; }
-}
-
-/* ページ単位で消したい時は <body class="no-emblem"> を付与 */
-.no-emblem .hero::after,
-.no-emblem .page-hero::after{ display: none; }
+@media (max-width:480px){ .hero::after,.page-hero::after{ width:42vw; opacity:.16; } }
 
 
 /* === Breadcrumb alignment fix === */
