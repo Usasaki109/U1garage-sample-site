@@ -290,7 +290,7 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
 /* 調整しやすい変数 */
 :root{
   --emblem-img: url("../img/hero-emblem.png?v=4"); /* 画像パス（CSSから見て../img） */
-  --emblem-opacity: .26;   /* 濃さ。薄いと感じたら .30〜.35 へ */
+  --emblem-opacity: .35;   /* 濃さ。薄いと感じたら .30〜.35 へ */
   --emblem-max: 360px;     /* 最大サイズ（PC上限） */
   --emblem-min: 160px;     /* 最小サイズ（極小画面の下限） */
   --emblem-h: 0.72;        /* ヒーロー高さに対する比率（72%） */
@@ -343,3 +343,47 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
 /* ページ単位で非表示にしたい場合（<body class="no-emblem"> を付与） */
 .no-emblem .hero::after,
 .no-emblem .page-hero::after{ display:none; }
+
+
+
+/* ===== Features / Maintenance：右側写真を“ほどほど”に ===== */
+
+/* 画像を置くカラムをフレックス化して右寄せ（余白が綺麗に出る） */
+.page-features  .band__media,
+.page-maintenance .band__media{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* 画像の上限サイズを抑える（横幅420px・高さ320pxを上限） */
+.page-features  .band__media img,
+.page-maintenance .band__media img{
+  width: min(100%, 420px);
+  max-height: 320px;
+  height: auto;
+  object-fit: cover;                 /* はみ出し防止＆軽いトリミング */
+  border-radius: var(--radius, 14px);
+  box-shadow: var(--shadow, 0 8px 24px rgba(0,0,0,.08));
+}
+
+/* 2カラムの幅バランスも少しテキスト寄りに */
+.page-features  .band,
+.page-maintenance .band{
+  display: grid;
+  grid-template-columns: 1fr auto;   /* 左：文章優先 / 右：画像は“auto”(上限あり) */
+  gap: 24px;
+  align-items: center;
+}
+
+/* モバイルは従来どおり1カラムで全幅 */
+@media (max-width: 960px){
+  .page-features  .band,
+  .page-maintenance .band{ grid-template-columns: 1fr; }
+  .page-features  .band__media img,
+  .page-maintenance .band__media img{
+    width: 100%;
+    max-height: none;                /* スマホは自然な比率で */
+  }
+}
+
