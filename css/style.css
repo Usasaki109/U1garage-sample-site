@@ -230,28 +230,6 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
   .features{ grid-template-columns: 1fr; }
 }
 
-/* === emblem on all hero sections === */
-.hero, .page-hero { position: relative; overflow: hidden; }
-.hero::after, .page-hero::after{
-  content: "";
-  position: absolute;
-  right: max(24px, 6vw);            /* 画面に応じて右余白 */
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(160px, 28vw, 360px); /* 自動スケール */
-  aspect-ratio: 1/1;
-  background: url("img/hero-emblem.png") center/contain no-repeat;
-  opacity: .18;                     /* 主張しすぎない */
-  pointer-events: none;
-}
-/* とても狭い端末では少しだけ小さく */
-@media (max-width: 480px){
-  .hero::after, .page-hero::after{ width: 42vw; opacity: .16; }
-}
-/* ページ単位で消したいとき（<body class="no-emblem">） */
-.no-emblem .hero::after,
-.no-emblem .page-hero::after{ display:none; }
-
 
 
 /* 会社概要：左右の高さ揃え */
@@ -279,13 +257,66 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
   }
 }
 
-/* === topbar alignment fix === */
-.topbar{ width:100%; overflow-x:hidden; }  /* 100vwのはみ出し対策 */
-.topbar .container, .topbar__in{
-  max-width: var(--container);
-  margin-inline: auto;
-  padding-inline: 16px;            /* ヘッダー/フッターと同じガター */
-  box-sizing: border-box;
+
+
+/* === エンブレム表示 === */
+.hero, .page-hero{
+  position: relative;
+  z-index: 0;            /* レイヤの基準を作る */
+  overflow: hidden;
 }
-/* もし .topbar__in に幅指定がある場合の保険 */
-.topbar__in{ width: auto; }
+
+/* テキストは常にエンブレムより前面へ */
+.hero > *, .page-hero > *{
+  position: relative;
+  z-index: 2;
+}
+
+/* エンブレム本体（右側に重ねる） */
+.hero::after, .page-hero::after{
+  content: "";
+  position: absolute;
+  z-index: 1;            /* 背景より上・テキストより下 */
+  right: max(24px, 6vw);
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(160px, 28vw, 360px);
+  aspect-ratio: 1/1;
+  background: url("img/hero-emblem.png?v=1") center/contain no-repeat;
+  opacity: .18;
+  pointer-events: none;
+}
+
+/* すごく狭い端末では少しだけ小さく */
+@media (max-width: 480px){
+  .hero::after, .page-hero::after{ width: 42vw; opacity: .16; }
+}
+
+/* ページ単位で消したい時は <body class="no-emblem"> を付与 */
+.no-emblem .hero::after,
+.no-emblem .page-hero::after{ display: none; }
+
+
+/* === Breadcrumb alignment fix === */
+/* container と breadcrumb を同時に持つ要素を確実に中央揃え＋同ガターに */
+.container.breadcrumb{
+  max-width: var(--container);
+  margin-inline: auto;        /* ← 中央寄せ（.containerの上書きを防ぐ） */
+  padding-inline: 16px;       /* ← ヘッダー/本文と同じ左右ガター */
+  box-sizing: border-box;
+  width: auto !important;     /* もし過去の幅指定があっても打ち消す */
+}
+
+/* 既存で margin を上書きしている場合の保険（左右は auto を維持） */
+.container.breadcrumb{
+  margin-block: 12px 24px;    /* 上下だけ指定、左右は auto のまま */
+}
+
+/* 見た目の調整（任意） */
+.breadcrumb{ font-size: 12.5px; color:#6b7280; }
+.breadcrumb a{ color:#1c3474; text-decoration: none; }
+.breadcrumb a:hover{ text-decoration: underline; }
+.breadcrumb .sep{ margin: 0 6px; color:#9ca3af; }
+
+
+
