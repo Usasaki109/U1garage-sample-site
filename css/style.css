@@ -282,108 +282,26 @@ ul,ol { margin: 0; padding: 0; list-style: none; } /* 箇条書き丸消し */
 
 
 
-/* =============================== */
-/*  Hero Emblem v2 (all pages)     */
-/*  css/style.css の末尾に追加     */
-/* =============================== */
+/* === Hero Emblem (element-based, strong) === */
+.hero, .page-hero { position: relative; overflow: hidden; }
 
-/* 調整しやすい変数 */
-:root{
-  --emblem-img: url("../img/hero-emblem.png?v=4"); /* 画像パス（CSSから見て../img） */
-  --emblem-opacity: .35;   /* 濃さ。薄いと感じたら .30〜.35 へ */
-  --emblem-max: 360px;     /* 最大サイズ（PC上限） */
-  --emblem-min: 160px;     /* 最小サイズ（極小画面の下限） */
-  --emblem-h: 0.72;        /* ヒーロー高さに対する比率（72%） */
-}
-
-/* ヒーロー領域（トップ: .hero / 下層: .page-hero） */
-.hero, .page-hero{
-  position: relative;
-  z-index: 0;
-  overflow: hidden; /* はみ出し保険 */
-}
-
-/* ヒーロー内テキストは前面へ */
-.hero > *, .page-hero > *{
-  position: relative;
-  z-index: 3;
-}
-
-/* エンブレム本体（右側に重ねる） */
-.hero::after, .page-hero::after{
-  content:"";
-  position:absolute;
-  z-index: 2; /* 背景や ::before の上、テキストの下 */
-
-  /* 右端：本文コンテナの右ライン + ガター16px に揃える */
-  right: max(16px, calc((100vw - var(--container)) / 2 + 16px));
-
-  /* サイズ：ヒーロー高さの比率で収めつつ、上限/下限を設定 */
-  height: clamp(var(--emblem-min), calc(var(--emblem-h) * 100%), var(--emblem-max));
-  aspect-ratio: 1 / 1;       /* 正方形前提（1080×1080 OK） */
-
-  /* 画像はトリミングしない（全体が見える） */
-  background-image: var(--emblem-img);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-
-  opacity: var(--emblem-opacity);
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,.06));
+.hero .hero-emblem,
+.page-hero .hero-emblem{
+  position: absolute;
+  z-index: 40;                         /* オーバーレイより上、テキスト(30未満なら)の下 */
   top: 50%;
   transform: translateY(-50%);
+
+  /* 本文コンテナの右端＋ガター16pxに合わせる（はみ出し防止） */
+  right: max(16px, calc((100vw - var(--container)) / 2 + 16px));
+
+  /* 1080×1080の正方形想定。ヒーロー高さ比で収め、上限/下限を設定 */
+  height: clamp(160px, 72%, 380px);
+  width: auto;                         /* 比率維持 */
+  object-fit: contain;
+
+  /* “薄い”と感じる場合は 0.7〜1.0 で調整 */
+  opacity: 0.9;
+  mix-blend-mode: normal;              /* ブレンドで薄くならないように固定 */
   pointer-events: none;
 }
-
-/* かなり狭い端末では少し軽めに */
-@media (max-width: 480px){
-  :root{ --emblem-max: 280px; --emblem-opacity: .22; --emblem-h: 0.64; }
-}
-
-/* ページ単位で非表示にしたい場合（<body class="no-emblem"> を付与） */
-.no-emblem .hero::after,
-.no-emblem .page-hero::after{ display:none; }
-
-
-
-/* ===== Features / Maintenance：右側写真を“ほどほど”に ===== */
-
-/* 画像を置くカラムをフレックス化して右寄せ（余白が綺麗に出る） */
-.page-features  .band__media,
-.page-maintenance .band__media{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-/* 画像の上限サイズを抑える（横幅420px・高さ320pxを上限） */
-.page-features  .band__media img,
-.page-maintenance .band__media img{
-  width: min(100%, 420px);
-  max-height: 320px;
-  height: auto;
-  object-fit: cover;                 /* はみ出し防止＆軽いトリミング */
-  border-radius: var(--radius, 14px);
-  box-shadow: var(--shadow, 0 8px 24px rgba(0,0,0,.08));
-}
-
-/* 2カラムの幅バランスも少しテキスト寄りに */
-.page-features  .band,
-.page-maintenance .band{
-  display: grid;
-  grid-template-columns: 1fr auto;   /* 左：文章優先 / 右：画像は“auto”(上限あり) */
-  gap: 24px;
-  align-items: center;
-}
-
-/* モバイルは従来どおり1カラムで全幅 */
-@media (max-width: 960px){
-  .page-features  .band,
-  .page-maintenance .band{ grid-template-columns: 1fr; }
-  .page-features  .band__media img,
-  .page-maintenance .band__media img{
-    width: 100%;
-    max-height: none;                /* スマホは自然な比率で */
-  }
-}
-

@@ -215,6 +215,20 @@
     };
     window.addEventListener('scroll', onScroll);
     onScroll();
+	
+	// すべての .hero / .page-hero にエンブレム画像を自動挿入
+	  (function () {
+	    var src = 'img/hero-emblem.png?v=6';   // 画像は /img 配下（大文字小文字も一致）
+	    document.querySelectorAll('.hero, .page-hero').forEach(function (sec) {
+	      // 既に入っていれば重複挿入しない
+	      if (sec.querySelector('.hero-emblem')) return;
+	      var em = new Image();
+	      em.className = 'hero-emblem';
+	      em.alt = '';
+	      em.src = src;
+	      sec.appendChild(em);
+	    });
+	  })();
   </script>
 </body>
 </html>
